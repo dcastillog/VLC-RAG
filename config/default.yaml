@@ -1,0 +1,32 @@
+# Experiment / tunable configuration.
+#
+# Infrastructure values (URLs, contact emails) do NOT belong here -- those come
+# from the environment / .env via ragvlc.config.Settings. This file holds only
+# knobs that change how a run behaves and that we may want to sweep later.
+#
+# At this stage only parsing-related keys exist. Retrieval / chunking / eval keys
+# will be added in a later prompt.
+
+parsing:
+  grobid:
+    timeout_seconds: 120        # GROBID can take 30+ s on a long paper
+    max_retries: 2              # retries on connection error / 5xx / timeout before failing loudly
+    retry_backoff_seconds: 2    # linear backoff: sleep attempt_number * this, between retries
+    consolidate_header: 1       # form fields passed to /api/processFulltextDocument
+    consolidate_citations: 0
+    include_raw_affiliations: 0
+    segment_sentences: 0
+
+  min_unit_chars: 30            # drop units whose normalized text is shorter (parsing debris)
+  unit_separator: "\n\n"        # canonical join separator; the only non-single-space
+                                # whitespace in the canonical text. Changing this
+                                # invalidates every annotated offset.
+
+  crossref:
+    sleep_seconds: 0.2          # polite pause between Crossref / Unpaywall calls
+
+  quality_gates:                # scripts/parse_corpus.py flags papers that fail these
+    min_sections: 4             # fewer -> likely a structural parse failure
+    min_chars: 5000             # fewer -> likely a truncated parse
+    min_mean_unit_chars: 100    # lower -> likely fragmented
+    min_alpha_ratio: 0.7        # lower -> likely garbled

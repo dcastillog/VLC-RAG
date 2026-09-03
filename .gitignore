@@ -11,4 +11,6 @@ wheels/
 qdrant_storage/
 data/pdfs/
 data/parsed/
+data/tei/
+data/crossref/
 .env
