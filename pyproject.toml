@@ -1,0 +1,16 @@
+[project]
+name = "rag-vlc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "qdrant-client[fastembed]>=1.19.0",
+]
+
+[project.scripts]
+rag-vlc = "rag_vlc:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
