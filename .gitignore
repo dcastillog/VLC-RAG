@@ -14,3 +14,6 @@ data/parsed/
 data/tei/
 data/crossref/
 .env
+
+#Prompts
+PROMPT_1_parsing.md

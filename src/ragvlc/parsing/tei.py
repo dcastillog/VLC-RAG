@@ -36,6 +36,11 @@ real GROBID output from this corpus rather than the TEI spec in the abstract:
    with the immediately following subsection head into a single `<head>` (see
    `_try_split_merged_heading`). Splitting these is what makes (1) accurate.
 
+   Both a performed split and a junk-heading classification are recorded as
+   plain strings on `ParsedPaper.warnings` rather than printed -- this module
+   returns data, it doesn't own terminal output. `parse_corpus.py` (a later
+   stage) is what will print them, with whatever paper-level framing it wants.
+
 3. **Character-composition stats.** Broken math-font encoding in the source
    PDF shows up in GROBID's output as Private Use Area characters or the
    Unicode replacement character. We count these per unit (and the non-ASCII
@@ -106,6 +111,8 @@ class Unit:
 class ParsedPaper:
     header: Header
     units: list[Unit] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)  # merged-heading splits, junk headings, ...
+    paper_id: str | None = None
 
 
 # --------------------------------------------------------------------------- #
@@ -488,16 +495,14 @@ _EXCLUDED_HEADING_RE = re.compile(r"references|bibliography|acknowledg", re.IGNO
 def _resolve_div_heading(
     head_elem: etree._Element | None,
     current_level1_heading: str | None,
-    paper_id: str | None,
-    junk_headings: list[str],
+    warnings: list[str],
 ) -> tuple[str, int, bool, bool, str | None]:
     """Work out (heading, section_level, heading_unnumbered, heading_junk,
     new_current_level1) for one `<div>`, applying amendments 1 and 2.
 
-    `junk_headings` is a caller-owned accumulator: any heading classified as
-    junk gets appended to it, so `parse_tei` can print one summary per paper
-    (see amendment 1's "print a summary" requirement) instead of one line per
-    occurrence.
+    `warnings` is a caller-owned accumulator: a performed merged-heading split
+    or a junk-heading classification appends a plain description to it,
+    instead of printing -- see the module docstring.
     """
     raw_head_text = _extract_inline_text(head_elem) if head_elem is not None else ""
     clean_head_text = _clean_ws(raw_head_text)
@@ -508,10 +513,8 @@ def _resolve_div_heading(
     split = _try_split_merged_heading(clean_head_text)
     if split is not None:
         parent_text, child_text = split
-        label = f"{paper_id}: " if paper_id else ""
-        print(
-            f"tei.py: {label}split merged heading {clean_head_text!r} -> "
-            f"parent={parent_text!r}, child={child_text!r}"
+        warnings.append(
+            f"split merged heading {clean_head_text!r} -> parent={parent_text!r}, child={child_text!r}"
         )
         return child_text, 2, False, False, parent_text
 
@@ -520,7 +523,9 @@ def _resolve_div_heading(
 
     heading_junk = unnumbered and _is_junk_heading(clean_head_text)
     if heading_junk:
-        junk_headings.append(clean_head_text)
+        warnings.append(
+            f"heading classified as junk, not carried forward as parent_heading: {clean_head_text!r}"
+        )
 
     if level == 1 and not heading_junk:
         new_current = clean_head_text
@@ -529,13 +534,13 @@ def _resolve_div_heading(
     return clean_head_text, level, unnumbered, heading_junk, new_current
 
 
-def _extract_body_units(root: etree._Element, paper_id: str | None) -> tuple[list[Unit], list[str]]:
+def _extract_body_units(root: etree._Element) -> tuple[list[Unit], list[str]]:
     body = root.find(f".//{_q('text')}/{_q('body')}")
     if body is None:
         return [], []
 
     units: list[Unit] = []
-    junk_headings: list[str] = []
+    warnings: list[str] = []
     current_level1_heading: str | None = None
     current_context: _SectionContext | None = None
     section_index = -1
@@ -553,7 +558,7 @@ def _extract_body_units(root: etree._Element, paper_id: str | None) -> tuple[lis
 
             section_index += 1
             heading, level, unnumbered, heading_junk, current_level1_heading = _resolve_div_heading(
-                head_elem, current_level1_heading, paper_id, junk_headings
+                head_elem, current_level1_heading, warnings
             )
             parent_heading = current_level1_heading
             section_type = _derive_section_type(parent_heading)
@@ -577,7 +582,7 @@ def _extract_body_units(root: etree._Element, paper_id: str | None) -> tuple[lis
 
         # <note> (footnotes) and anything else at the body level: skip.
 
-    return units, junk_headings
+    return units, warnings
 
 
 # --------------------------------------------------------------------------- #
@@ -586,9 +591,10 @@ def _extract_body_units(root: etree._Element, paper_id: str | None) -> tuple[lis
 def parse_tei(xml_bytes: bytes, *, paper_id: str | None = None) -> ParsedPaper:
     """Parse one GROBID TEI document into header metadata and content units.
 
-    `paper_id` is optional and used only to label the "merged heading split"
-    (amendment 2) and "junk heading" (amendment 1) log lines so they're
-    traceable across a 36-paper batch run; it has no effect on parsing.
+    `paper_id` is optional; it has no effect on parsing and is only carried
+    through onto the returned `ParsedPaper.paper_id`, so a caller collecting
+    many of these (e.g. across a batch run) can print each one's `warnings`
+    with the right paper attached without keeping a parallel list.
     """
     root = etree.fromstring(xml_bytes)
 
@@ -617,16 +623,7 @@ def parse_tei(xml_bytes: bytes, *, paper_id: str | None = None) -> ParsedPaper:
             )
         )
 
-    body_units, junk_headings = _extract_body_units(root, paper_id)
+    body_units, warnings = _extract_body_units(root)
     units.extend(body_units)
 
-    if junk_headings:
-        label = f"{paper_id}: " if paper_id else ""
-        print(
-            f"tei.py: {label}{len(junk_headings)} unnumbered heading(s) classified as junk "
-            f"(kept as their own section_heading, not carried forward as parent_heading):"
-        )
-        for heading in junk_headings:
-            print(f"  - {heading!r}")
-
-    return ParsedPaper(header=header, units=units)
+    return ParsedPaper(header=header, units=units, warnings=warnings, paper_id=paper_id)

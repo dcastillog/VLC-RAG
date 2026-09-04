@@ -24,6 +24,7 @@ parsing:
 
   crossref:
     sleep_seconds: 0.2          # polite pause between Crossref / Unpaywall calls
+    timeout_seconds: 15         # both APIs are small JSON REST calls, unlike GROBID
 
   quality_gates:                # scripts/parse_corpus.py flags papers that fail these
     min_sections: 4             # fewer -> likely a structural parse failure

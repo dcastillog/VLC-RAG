@@ -108,9 +108,14 @@ class GrobidConfig(_StrictModel):
 
 
 class CrossrefConfig(_StrictModel):
-    """Politeness settings for the Crossref / Unpaywall calls."""
+    """Politeness/timeout settings for the Crossref / Unpaywall calls.
+
+    Retries reuse ``grobid.max_retries`` / ``grobid.retry_backoff_seconds``
+    (the "same retry policy" PROMPT_1 specifies) rather than duplicating them.
+    """
 
     sleep_seconds: float = 0.2
+    timeout_seconds: float = 15.0
 
 
 class QualityGates(_StrictModel):
