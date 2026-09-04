@@ -31,3 +31,4 @@ parsing:
     min_chars: 5000             # fewer -> likely a truncated parse
     min_mean_unit_chars: 100    # lower -> likely fragmented
     min_alpha_ratio: 0.7        # lower -> likely garbled
+    max_non_ascii_ratio: 0.02   # higher -> likely broken math-font encoding

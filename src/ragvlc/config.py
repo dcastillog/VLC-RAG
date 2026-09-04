@@ -119,12 +119,18 @@ class CrossrefConfig(_StrictModel):
 
 
 class QualityGates(_StrictModel):
-    """Thresholds below which ``parse_corpus.py`` flags a paper as suspicious."""
+    """Thresholds ``parse_corpus.py`` checks each paper against.
+
+    A handful of other flags it prints (any PUA character, any U+FFFD,
+    missing DOI, non-CC licence) are plain presence checks with no
+    meaningful threshold to tune, so they aren't modeled here.
+    """
 
     min_sections: int = 4
     min_chars: int = 5_000
     min_mean_unit_chars: float = 100.0
     min_alpha_ratio: float = 0.7
+    max_non_ascii_ratio: float = 0.02
 
 
 class ParsingConfig(_StrictModel):
