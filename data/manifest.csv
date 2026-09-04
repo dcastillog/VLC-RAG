@@ -1,0 +1,37 @@
+paper_id,doi,title,year,venue,licence,n_chars
+6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions,10.1109/ojcoms.2020.3010270,"6G Wireless Communication Systems: Applications, Requirements, Technologies, Challenges, and Research Directions",2020,IEEE Open Journal of the Communications Society,CC-BY-4.0,66670
+6g-wireless-communications-networks-a-comprehensive-survey,10.1109/access.2021.3124812,6G Wireless Communications Networks: A Comprehensive Survey,2021,IEEE Access,CC-BY-4.0,191689
+a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing,10.1109/access.2020.3030615,A VLC Channel Model for Underground Mining Environments With Scattering and Shadowing,2020,IEEE Access,CC-BY-4.0,76427
+applsci-14-02514-v3,10.3390/app14062514,Performance Analysis of the Particle Swarm Optimization Algorithm in a VLC System for Localization in Hospital Environments,2024,Applied Sciences,CC-BY-4.0,46672
+applsci-14-08912,10.3390/app14198912,Comprehensive Survey on VLC in E-Healthcare: Channel Coding Schemes and Modulation Techniques,2024,Applied Sciences,CC-BY-4.0,61758
+applsci-15-01617-v2,10.3390/app15031617,Intelligent Reflective Surface-Assisted Visible Light Communication with Angle Diversity Receivers and RNN: Optimizing Non-Line-of-Sight Indoor Environments,2025,Applied Sciences,CC-BY-4.0,60498
+applsci-15-02364,10.3390/app15052364,Statistical Modeling of Wall Roughness and Its Influence on NLOS VLC Channels in Underground Mining,2025,Applied Sciences,CC-BY-4.0,51942
+channel-modeling-and-characterization-for-vlc-based-medical-body-sensor-networks-trends-and-challenges,10.1109/access.2021.3127941,Channel Modeling and Characterization for VLC-Based Medical Body Sensor Networks: Trends and Challenges,2021,IEEE Access,CC-BY-4.0,54691
+deep-q-network-learning-based-downlink-resource-allocation-for-hybrid-rf-vlc-systems,10.1109/access.2020.3014427,Deep Q-Network Learning Based Downlink Resource Allocation for Hybrid RF/VLC Systems,2020,IEEE Access,CC-BY-4.0,84875
+electronics-09-01339-v3,10.3390/electronics9091339,"Optical Camera Communications: Principles, Modulations, Potential and Challenges",2020,Electronics,CC-BY-4.0,148935
+electronics-12-00577-v4,10.3390/electronics12030577,A Wavelength-Dependent Visible Light Communication Channel Model for Underground Environments and Its Performance Using a Color-Shift Keying Modulation Scheme,2023,Electronics,CC-BY-4.0,66098
+electronics-12-05036,10.3390/electronics12245036,Multi-Wavelength Path Loss Model for Indoor VLC with Mobile Human Blockage,2023,Electronics,CC-BY-4.0,45846
+energies-15-02814,10.3390/en15082814,Simultaneous Lightwave and Power Transfer for Internet of Things Devices,2022,Energies,CC-BY-4.0,19371
+enhanced-visible-light-communication-for-real-time-audio-with-interference-resilient-protocols,10.1109/access.2025.3538588,Enhanced Visible Light Communication for Real-Time Audio With Interference-Resilient Protocols,2025,IEEE Access,CC-BY-4.0,66147
+entropy-24-01507-v2,10.3390/e24111507,A Novel and Adaptive Angle Diversity-Based Receiver for 6G Underground Mining VLC Systems,2022,Entropy,CC-BY-4.0,43260
+hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions,10.1109/access.2021.3129154,"Hybrid RF/VLC Systems: A Comprehensive Survey on Network Topologies, Performance Analyses, Applications, and Future Directions",2021,IEEE Access,CC-BY-4.0,105876
+optimization-of-a-color-based-spatial-modulation-scheme-for-vlc-under-illuminance-and-sinr-constraints,10.1109/access.2022.3221747,Optimization of a Color-Based Spatial Modulation Scheme for VLC Under Illuminance and SINR Constraints,2022,IEEE Access,CC-BY-4.0,44805
+performance-analysis-of-positioning-by-deep-reinforcement-learning-in-vlc-based-empty-office-environment,10.1109/access.2025.3605950,Performance Analysis of Positioning by Deep Reinforcement Learning in VLC-Based Empty Office Environment,2025,IEEE Access,CC-BY-4.0,45273
+performance-analysis-of-short-packets-in-noma-vlc-systems,10.1109/access.2022.3141865,Performance Analysis of Short Packets in NOMA VLC Systems,2022,IEEE Access,CC-BY-4.0,36510
+performance-evaluation-of-short-packet-communications-in-noma-vlc-systems-with-imperfect-csi,10.1109/access.2022.3173754,Performance Evaluation of Short Packet Communications in NOMA VLC Systems With Imperfect CSI,2022,IEEE Access,CC-BY-4.0,38696
+photonics-10-01117,10.3390/photonics10101117,On the Performance of Intelligent Reconfigurable Surfaces for 6G Indoor Visible Light Communications Systems,2023,Photonics,CC-BY-4.0,33137
+photonics-11-00856,10.3390/photonics11090856,Performance Evaluation of Non-Lambertian SLIPT for 6G Visible Light Communication Systems,2024,Photonics,CC-BY-4.0,40046
+photonics-12-00649,10.3390/photonics12070649,Evaluating MIMO-VLC System Performance: Modulation Techniques and Ambient Light Interference Effects,2025,Photonics,CC-BY-4.0,39841
+photonics-13-00569,10.3390/photonics13060569,Risk-Aware Illumination-Constrained Resource Allocation for Hybrid VLC/RF Indoor Networks Under Random Optical Blockage,2026,Photonics,CC-BY-4.0,73680
+photonics-13-00718,10.3390/photonics13080718,Resource Allocation and Performance Optimization for IRS-Assisted Aggregated VLC–RF Vehicular Networks,2026,Photonics,CC-BY-4.0,55819
+reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review,10.1109/access.2026.3702825,"Reconfigurable Intelligent Surfaces Architectures for Visible Light Communication: Metasurfaces, Mirrors, Liquid Crystals, and Simultaneous Transmission and Reflection: Topical Review",2026,IEEE Access,CC-BY-4.0,116281
+sensors-18-01127,10.3390/s18041127,Efficient Visible Light Communication Transmitters Based on Switching-Mode dc-dc Converters,2018,Sensors,CC-BY-4.0,33182
+sensors-20-02261-v2,10.3390/s20082261,Underwater Optical Wireless Communications: Overview,2020,Sensors,CC-BY-4.0,28503
+sensors-20-06869-v2,10.3390/s20236869,"Utilization of an OLED-Based VLC System in Office, Corridor, and Semi-Open Corridor Environments",2020,Sensors,CC-BY-4.0,32128
+sensors-21-00861-v2,10.3390/s21030861,Lights and Shadows: A Comprehensive Survey on Cooperative and Precoding Schemes to Overcome LOS Blockage and Interference in Indoor VLC,2021,Sensors,CC-BY-4.0,88451
+sensors-22-02483,10.3390/s22072483,An Enhanced VLC Channel Model for Underground Mining Environments Considering a 3D Dust Particle Distribution Model,2022,Sensors,CC-BY-4.0,44751
+sensors-22-05405,10.3390/s22145405,Machine Learning for Intelligent-Reflecting-Surface-Based Wireless Communication towards 6G: A Review,2022,Sensors,CC-BY-4.0,42205
+sensors-22-05436,10.3390/s22145436,Indoor MIMO-VLC Using Angle Diversity Transmitters,2022,Sensors,CC-BY-4.0,21911
+sensors-23-07545-v2,10.3390/s23177545,"A Review of Hybrid VLC/RF Networks: Features, Applications, and Future Directions",2023,Sensors,CC-BY-4.0,75462
+solar-03-00011,10.3390/solar3010011,Doing More with Ambient Light: Harvesting Indoor Energy and Data Using Emerging Solar Cells,2023,Solar,CC-BY-4.0,68169
+visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays,10.1109/ojcoms.2020.3041930,Visible Light Communications via Intelligent Reflecting Surfaces: Metasurfaces vs Mirror Arrays,2021,IEEE Open Journal of the Communications Society,CC-BY-4.0,55857

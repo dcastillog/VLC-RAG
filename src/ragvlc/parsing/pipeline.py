@@ -33,6 +33,7 @@ reaches the point of writing files) if the check ever fails.
 
 from __future__ import annotations
 
+import hashlib
 import json
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -186,6 +187,7 @@ class ProcessedPaper:
     licence: str
     source_pdf: str
     n_chars: int
+    text_sha256: str
     n_units: int
     n_dropped_units: int
     units: list[AssembledUnit]
@@ -229,6 +231,13 @@ def process_paper(pdf_path: Path, *, force: bool = False) -> ProcessedPaper:
     year = metadata.year or parsed.header.year
     venue = metadata.venue or parsed.header.venue
 
+    # SHA-256 of the exact bytes written to the .txt file below -- the
+    # tripwire `scripts/verify_corpus.py` checks before every annotation
+    # session. Once a gold span is recorded as an offset into this file, any
+    # change to it (even whitespace) silently invalidates that span; this is
+    # what turns "silently" into "verify_corpus.py fails loudly".
+    text_sha256 = hashlib.sha256(assembled.full_text.encode("utf-8")).hexdigest()
+
     document = {
         "paper_id": paper_id,
         "doi": metadata.doi,
@@ -239,13 +248,18 @@ def process_paper(pdf_path: Path, *, force: bool = False) -> ProcessedPaper:
         "licence": metadata.licence,
         "source_pdf": pdf_path.name,
         "n_chars": len(assembled.full_text),
+        "text_sha256": text_sha256,
         "units": [asdict(unit) for unit in assembled.units],
     }
 
     paths.normalized.mkdir(parents=True, exist_ok=True)
     txt_path = paths.normalized / f"{paper_id}.txt"
     json_path = paths.normalized / f"{paper_id}.json"
-    txt_path.write_text(assembled.full_text, encoding="utf-8")
+    # newline="" disables any newline translation on write, so the bytes on
+    # disk are exactly `full_text.encode("utf-8")` -- what text_sha256 above
+    # is computed from -- on every platform, not just the one this happens to
+    # run on today.
+    txt_path.write_text(assembled.full_text, encoding="utf-8", newline="")
     json_path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     return ProcessedPaper(
@@ -258,6 +272,7 @@ def process_paper(pdf_path: Path, *, force: bool = False) -> ProcessedPaper:
         licence=metadata.licence,
         source_pdf=pdf_path.name,
         n_chars=len(assembled.full_text),
+        text_sha256=text_sha256,
         n_units=len(assembled.units),
         n_dropped_units=assembled.n_dropped_units,
         units=assembled.units,

@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from collections import defaultdict
 from dataclasses import dataclass
@@ -165,20 +166,36 @@ def _mean_unit_chars(result: ProcessedPaper) -> float:
     return sum(unit.char_end - unit.char_start for unit in result.units) / len(result.units)
 
 
-def _text_ratios(result: ProcessedPaper) -> tuple[float, float]:
-    """(alphabetic_ratio, non_ascii_ratio) over the actual persisted
-    canonical text. Read back from disk rather than composed from per-unit
-    stats: accurately weighting several per-unit non_ascii_ratio values by
-    their original (pre-normalize) lengths would need data AssembledUnit
-    doesn't carry, whereas re-deriving both ratios straight from the file is
-    exact -- and it doubles as a check that the file was written correctly.
+def _read_full_text(result: ProcessedPaper) -> str:
+    """The actual persisted canonical text, read back from disk rather than
+    reconstructed. Several flags below need this rather than per-unit stats
+    (e.g. accurately weighting several per-unit non_ascii_ratio values by
+    their original, pre-normalize lengths would need data AssembledUnit
+    doesn't carry) -- and re-reading it here doubles as a check that the file
+    was actually written correctly.
     """
-    text = result.txt_path.read_text(encoding="utf-8")
+    return result.txt_path.read_text(encoding="utf-8")
+
+
+def _text_ratios(text: str) -> tuple[float, float]:
+    """(alphabetic_ratio, non_ascii_ratio) over the given text."""
     if not text:
         return 0.0, 0.0
     n_alpha = sum(1 for ch in text if ch.isalpha())
     n_non_ascii = sum(1 for ch in text if ord(ch) > 127)
     return n_alpha / len(text), n_non_ascii / len(text)
+
+
+# tei.py strips numeric citation-bracket residue (untagged ranges like
+# "[59]-[65]", orphan range-dashes) at extraction time -- see its module
+# docstring, item 4. This should therefore find exactly zero occurrences on
+# every paper; a hit means that fix missed a shape, and it's cheap enough to
+# check on all 36 papers automatically rather than by re-reading them by eye.
+_CITATION_RESIDUE_RE = re.compile(r"\[\d+\]")
+
+
+def _n_citation_residue(text: str) -> int:
+    return len(_CITATION_RESIDUE_RE.findall(text))
 
 
 def _flags_for(result: ProcessedPaper, gates: QualityGates) -> list[str]:
@@ -199,11 +216,17 @@ def _flags_for(result: ProcessedPaper, gates: QualityGates) -> list[str]:
     if mean_chars < gates.min_mean_unit_chars:
         flags.append(f"mean unit length under {gates.min_mean_unit_chars:.0f} chars ({mean_chars:.1f})")
 
-    alpha_ratio, non_ascii_ratio = _text_ratios(result)
+    text = _read_full_text(result)
+
+    alpha_ratio, non_ascii_ratio = _text_ratios(text)
     if alpha_ratio < gates.min_alpha_ratio:
         flags.append(f"alphabetic ratio below {gates.min_alpha_ratio:.0%} ({alpha_ratio:.1%})")
     if non_ascii_ratio > gates.max_non_ascii_ratio:
         flags.append(f"non-ASCII ratio above {gates.max_non_ascii_ratio:.0%} ({non_ascii_ratio:.1%})")
+
+    n_residue = _n_citation_residue(text)
+    if n_residue > 0:
+        flags.append(f"{n_residue} untagged citation-bracket residue (e.g. '[12]') left in the text")
 
     n_pua = sum(unit.n_pua_chars for unit in result.units)
     if n_pua > 0:

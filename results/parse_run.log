@@ -1,0 +1,210 @@
+[1/36] 6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions: ok (100 units, 66692 chars)
+[2/36] 6g-wireless-communications-networks-a-comprehensive-survey: ok (168 units, 191796 chars)
+[3/36] a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing: ok (132 units, 76439 chars)
+[4/36] applsci-14-02514-v3: ok (98 units, 46672 chars)
+[5/36] applsci-14-08912: ok (92 units, 61778 chars)
+[6/36] applsci-15-01617-v2: ok (160 units, 60506 chars)
+[7/36] applsci-15-02364: ok (99 units, 51942 chars)
+[8/36] channel-modeling-and-characterization-for-vlc-based-medical-body-sensor-networks-trends-and-challenges: ok (95 units, 54753 chars)
+[9/36] deep-q-network-learning-based-downlink-resource-allocation-for-hybrid-rf-vlc-systems: ok (150 units, 84889 chars)
+[10/36] electronics-09-01339-v3: ok (282 units, 148970 chars)
+[11/36] electronics-12-00577-v4: ok (169 units, 66120 chars)
+[12/36] electronics-12-05036: ok (102 units, 45860 chars)
+[13/36] energies-15-02814: ok (32 units, 19371 chars)
+[14/36] enhanced-visible-light-communication-for-real-time-audio-with-interference-resilient-protocols: ok (140 units, 66152 chars)
+[15/36] entropy-24-01507-v2: ok (80 units, 43260 chars)
+[16/36] hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions: ok (196 units, 105917 chars)
+[17/36] optimization-of-a-color-based-spatial-modulation-scheme-for-vlc-under-illuminance-and-sinr-constraints: ok (90 units, 44805 chars)
+[18/36] performance-analysis-of-positioning-by-deep-reinforcement-learning-in-vlc-based-empty-office-environment: ok (112 units, 45273 chars)
+[19/36] performance-analysis-of-short-packets-in-noma-vlc-systems: ok (124 units, 36512 chars)
+[20/36] performance-evaluation-of-short-packet-communications-in-noma-vlc-systems-with-imperfect-csi: ok (133 units, 38698 chars)
+[21/36] photonics-10-01117: ok (67 units, 33142 chars)
+[22/36] photonics-11-00856: ok (92 units, 40061 chars)
+[23/36] photonics-12-00649: ok (85 units, 39845 chars)
+[24/36] photonics-13-00569: ok (186 units, 73680 chars)
+[25/36] photonics-13-00718: ok (119 units, 55839 chars)
+[26/36] reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review: ok (259 units, 116305 chars)
+[27/36] sensors-18-01127: ok (80 units, 33182 chars)
+[28/36] sensors-20-02261-v2: ok (78 units, 28503 chars)
+[29/36] sensors-20-06869-v2: ok (67 units, 32128 chars)
+[30/36] sensors-21-00861-v2: ok (148 units, 88546 chars)
+[31/36] sensors-22-02483: ok (93 units, 44781 chars)
+[32/36] sensors-22-05405: ok (62 units, 42205 chars)
+[33/36] sensors-22-05436: ok (53 units, 21916 chars)
+[34/36] sensors-23-07545-v2: ok (103 units, 75553 chars)
+[35/36] solar-03-00011: ok (67 units, 68291 chars)
+[36/36] visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays: ok (153 units, 55863 chars)
+
+=== Summary ===
+
+paper_id                                                                                                                                                                           | n_units | n_chars | n_sections | n_captions | eqn units | licence   | DOI?
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+---------+------------+------------+-----------+-----------+-----
+6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions                                                                        | 100     | 66692   | 35         | 2          | 0         | CC-BY-4.0 | Y   
+6g-wireless-communications-networks-a-comprehensive-survey                                                                                                                         | 168     | 191796  | 111        | 20         | 0         | CC-BY-4.0 | Y   
+a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing                                                                                              | 132     | 76439   | 26         | 15         | 0         | CC-BY-4.0 | Y   
+applsci-14-02514-v3                                                                                                                                                                | 98      | 46672   | 21         | 7          | 0         | CC-BY-4.0 | Y   
+applsci-14-08912                                                                                                                                                                   | 92      | 61778   | 23         | 5          | 0         | CC-BY-4.0 | Y   
+applsci-15-01617-v2                                                                                                                                                                | 160     | 60506   | 39         | 12         | 0         | CC-BY-4.0 | Y   
+applsci-15-02364                                                                                                                                                                   | 99      | 51942   | 10         | 21         | 0         | CC-BY-4.0 | Y   
+channel-modeling-and-characterization-for-vlc-based-medical-body-sensor-networks-trends-and-challenges                                                                             | 95      | 54753   | 15         | 9          | 0         | CC-BY-4.0 | Y   
+deep-q-network-learning-based-downlink-resource-allocation-for-hybrid-rf-vlc-systems                                                                                               | 150     | 84889   | 21         | 18         | 0         | CC-BY-4.0 | Y   
+electronics-09-01339-v3                                                                                                                                                            | 282     | 148970  | 53         | 92         | 0         | CC-BY-4.0 | Y   
+electronics-12-00577-v4                                                                                                                                                            | 169     | 66120   | 25         | 12         | 0         | CC-BY-4.0 | Y   
+electronics-12-05036                                                                                                                                                               | 102     | 45860   | 16         | 11         | 0         | CC-BY-4.0 | Y   
+energies-15-02814                                                                                                                                                                  | 32      | 19371   | 10         | 11         | 0         | CC-BY-4.0 | Y   
+enhanced-visible-light-communication-for-real-time-audio-with-interference-resilient-protocols                                                                                     | 140     | 66152   | 43         | 17         | 0         | CC-BY-4.0 | Y   
+entropy-24-01507-v2                                                                                                                                                                | 80      | 43260   | 16         | 6          | 0         | CC-BY-4.0 | Y   
+hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions                                                         | 196     | 105917  | 28         | 9          | 0         | CC-BY-4.0 | Y   
+optimization-of-a-color-based-spatial-modulation-scheme-for-vlc-under-illuminance-and-sinr-constraints                                                                             | 90      | 44805   | 13         | 25         | 0         | CC-BY-4.0 | Y   
+performance-analysis-of-positioning-by-deep-reinforcement-learning-in-vlc-based-empty-office-environment                                                                           | 112     | 45273   | 15         | 19         | 0         | CC-BY-4.0 | Y   
+performance-analysis-of-short-packets-in-noma-vlc-systems                                                                                                                          | 124     | 36512   | 21         | 12         | 0         | CC-BY-4.0 | Y   
+performance-evaluation-of-short-packet-communications-in-noma-vlc-systems-with-imperfect-csi                                                                                       | 133     | 38698   | 20         | 11         | 0         | CC-BY-4.0 | Y   
+photonics-10-01117                                                                                                                                                                 | 67      | 33142   | 11         | 6          | 0         | CC-BY-4.0 | Y   
+photonics-11-00856                                                                                                                                                                 | 92      | 40061   | 20         | 21         | 0         | CC-BY-4.0 | Y   
+photonics-12-00649                                                                                                                                                                 | 85      | 39845   | 17         | 21         | 0         | CC-BY-4.0 | Y   
+photonics-13-00569                                                                                                                                                                 | 186     | 73680   | 31         | 10         | 0         | CC-BY-4.0 | Y   
+photonics-13-00718                                                                                                                                                                 | 119     | 55839   | 21         | 18         | 0         | CC-BY-4.0 | Y   
+reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review | 259     | 116305  | 23         | 17         | 0         | CC-BY-4.0 | Y   
+sensors-18-01127                                                                                                                                                                   | 80      | 33182   | 20         | 20         | 0         | CC-BY-4.0 | Y   
+sensors-20-02261-v2                                                                                                                                                                | 78      | 28503   | 11         | 19         | 0         | CC-BY-4.0 | Y   
+sensors-20-06869-v2                                                                                                                                                                | 67      | 32128   | 8          | 26         | 0         | CC-BY-4.0 | Y   
+sensors-21-00861-v2                                                                                                                                                                | 148     | 88546   | 40         | 20         | 0         | CC-BY-4.0 | Y   
+sensors-22-02483                                                                                                                                                                   | 93      | 44781   | 19         | 11         | 0         | CC-BY-4.0 | Y   
+sensors-22-05405                                                                                                                                                                   | 62      | 42205   | 24         | 12         | 0         | CC-BY-4.0 | Y   
+sensors-22-05436                                                                                                                                                                   | 53      | 21916   | 9          | 8          | 0         | CC-BY-4.0 | Y   
+sensors-23-07545-v2                                                                                                                                                                | 103     | 75553   | 17         | 15         | 0         | CC-BY-4.0 | Y   
+solar-03-00011                                                                                                                                                                     | 67      | 68291   | 7          | 18         | 0         | CC-BY-4.0 | Y   
+visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays                                                                                     | 153     | 55863   | 26         | 16         | 0         | CC-BY-4.0 | Y   
+
+=== Heading structure ===
+
+paper_id                                                                                                                                                                           | L1 | L2 | L3 | unnumbered-plausible | junk | merged-splits
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----+----+----+----------------------+------+--------------
+6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions                                                                        | 31 | 4  | 0  | 2                    | 22   | 0            
+6g-wireless-communications-networks-a-comprehensive-survey                                                                                                                         | 8  | 24 | 79 | 0                    | 1    | 0            
+a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing                                                                                              | 5  | 19 | 2  | 0                    | 0    | 2            
+applsci-14-02514-v3                                                                                                                                                                | 11 | 10 | 0  | 1                    | 5    | 0            
+applsci-14-08912                                                                                                                                                                   | 8  | 15 | 0  | 1                    | 0    | 0            
+applsci-15-01617-v2                                                                                                                                                                | 11 | 24 | 4  | 1                    | 2    | 0            
+applsci-15-02364                                                                                                                                                                   | 4  | 1  | 5  | 0                    | 0    | 0            
+channel-modeling-and-characterization-for-vlc-based-medical-body-sensor-networks-trends-and-challenges                                                                             | 5  | 6  | 4  | 0                    | 0    | 0            
+deep-q-network-learning-based-downlink-resource-allocation-for-hybrid-rf-vlc-systems                                                                                               | 5  | 12 | 4  | 1                    | 0    | 0            
+electronics-09-01339-v3                                                                                                                                                            | 8  | 27 | 18 | 0                    | 1    | 0            
+electronics-12-00577-v4                                                                                                                                                            | 3  | 12 | 10 | 1                    | 0    | 0            
+electronics-12-05036                                                                                                                                                               | 4  | 12 | 0  | 0                    | 0    | 0            
+energies-15-02814                                                                                                                                                                  | 5  | 5  | 0  | 0                    | 1    | 0            
+enhanced-visible-light-communication-for-real-time-audio-with-interference-resilient-protocols                                                                                     | 7  | 20 | 16 | 0                    | 1    | 0            
+entropy-24-01507-v2                                                                                                                                                                | 7  | 9  | 0  | 1                    | 1    | 0            
+hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions                                                         | 6  | 11 | 11 | 1                    | 1    | 0            
+optimization-of-a-color-based-spatial-modulation-scheme-for-vlc-under-illuminance-and-sinr-constraints                                                                             | 5  | 8  | 0  | 1                    | 0    | 0            
+performance-analysis-of-positioning-by-deep-reinforcement-learning-in-vlc-based-empty-office-environment                                                                           | 6  | 6  | 3  | 2                    | 0    | 0            
+performance-analysis-of-short-packets-in-noma-vlc-systems                                                                                                                          | 11 | 9  | 1  | 4                    | 5    | 2            
+performance-evaluation-of-short-packet-communications-in-noma-vlc-systems-with-imperfect-csi                                                                                       | 8  | 11 | 1  | 2                    | 2    | 1            
+photonics-10-01117                                                                                                                                                                 | 7  | 4  | 0  | 2                    | 0    | 0            
+photonics-11-00856                                                                                                                                                                 | 5  | 15 | 0  | 0                    | 0    | 0            
+photonics-12-00649                                                                                                                                                                 | 8  | 9  | 0  | 0                    | 1    | 0            
+photonics-13-00569                                                                                                                                                                 | 5  | 26 | 0  | 0                    | 1    | 0            
+photonics-13-00718                                                                                                                                                                 | 8  | 13 | 0  | 0                    | 3    | 0            
+reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review | 10 | 13 | 0  | 0                    | 4    | 0            
+sensors-18-01127                                                                                                                                                                   | 10 | 10 | 0  | 6                    | 0    | 0            
+sensors-20-02261-v2                                                                                                                                                                | 8  | 3  | 0  | 1                    | 1    | 0            
+sensors-20-06869-v2                                                                                                                                                                | 2  | 6  | 0  | 0                    | 0    | 0            
+sensors-21-00861-v2                                                                                                                                                                | 11 | 13 | 16 | 3                    | 1    | 0            
+sensors-22-02483                                                                                                                                                                   | 5  | 12 | 2  | 0                    | 0    | 0            
+sensors-22-05405                                                                                                                                                                   | 5  | 19 | 0  | 0                    | 0    | 0            
+sensors-22-05436                                                                                                                                                                   | 6  | 3  | 0  | 0                    | 0    | 0            
+sensors-23-07545-v2                                                                                                                                                                | 9  | 8  | 0  | 2                    | 1    | 0            
+solar-03-00011                                                                                                                                                                     | 2  | 5  | 0  | 0                    | 0    | 0            
+visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays                                                                                     | 12 | 12 | 2  | 4                    | 0    | 0            
+
+=== Flags ===
+
+6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions:
+  - heading classified as junk, not carried forward as parent_heading: 'Connected Intelligence:'
+  - heading classified as junk, not carried forward as parent_heading: 'Seamless Integration of Wireless Information and Energy Transfer:'
+  - heading classified as junk, not carried forward as parent_heading: 'High-Capacity Backhaul:'
+  - heading classified as junk, not carried forward as parent_heading: 'Super-Smart Society:'
+  - heading classified as junk, not carried forward as parent_heading: 'Wireless Brain-Computer Interactions:'
+  - heading classified as junk, not carried forward as parent_heading: 'Haptic Communication:'
+  - heading classified as junk, not carried forward as parent_heading: 'Smart Healthcare and Biomedical Communication:'
+  - heading classified as junk, not carried forward as parent_heading: 'Five Senses Information Transfer:'
+  - heading classified as junk, not carried forward as parent_heading: 'Artificial Intelligence:'
+  - heading classified as junk, not carried forward as parent_heading: 'Terahertz Communications:'
+  - heading classified as junk, not carried forward as parent_heading: '3D Networking:'
+  - heading classified as junk, not carried forward as parent_heading: 'Cell-Free Communications:'
+  - heading classified as junk, not carried forward as parent_heading: 'Integration of Sensing and Communication:'
+  - heading classified as junk, not carried forward as parent_heading: 'Integration of Access-Backhaul Networks:'
+  - heading classified as junk, not carried forward as parent_heading: 'communication, and high-dimensional intelligent configurations.'
+  - heading classified as junk, not carried forward as parent_heading: 'TABLE 6. Summary of current studies on 6G.'
+  - heading classified as junk, not carried forward as parent_heading: 'Finnish 6G Flagship Program:'
+  - heading classified as junk, not carried forward as parent_heading: 'International Telecommunication Union: Standardization activities on 5G of the ITU radio communication sector ITU-R were based on IMT-2020. Consequently, ITU-R probably releases IMT-2030, which summarizes the possible requirements of mobile communications in 2030 (i.e., 6G).'
+  - heading classified as junk, not carried forward as parent_heading: 'High Propagation and Atmospheric Absorption of THz:'
+  - heading classified as junk, not carried forward as parent_heading: 'Modeling of Sub-mmWave (THz) Frequencies:'
+  - heading classified as junk, not carried forward as parent_heading: 'High-Capacity Backhaul Connectivity:'
+  - heading classified as junk, not carried forward as parent_heading: 'Planning of Economic Prospect: Economic prospect is also important for the deployment of 6G communication.'
+6g-wireless-communications-networks-a-comprehensive-survey:
+  - heading classified as junk, not carried forward as parent_heading: 'generation (1G) to the fifth-generation (5G).'
+a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing:
+  - split merged heading 'II. RELATED WORK A. VLC APPLICATIONS IN UNDERGROUND MINES' -> parent='II. RELATED WORK', child='A. VLC APPLICATIONS IN UNDERGROUND MINES'
+  - split merged heading 'IV. POSITION CHARACTERIZATION OF LEDs AND PDs, AND NON-FLAT WALLS MODELING A. TILTED AND ROTATED LEDs AND PDs' -> parent='IV. POSITION CHARACTERIZATION OF LEDs AND PDs, AND NON-FLAT WALLS MODELING', child='A. TILTED AND ROTATED LEDs AND PDs'
+applsci-14-02514-v3:
+  - heading classified as junk, not carried forward as parent_heading: 'Integration of the PSO scheme in trilateration:'
+  - heading classified as junk, not carried forward as parent_heading: 'Mitigation of interference'
+  - heading classified as junk, not carried forward as parent_heading: 'Reduced environmental interference'
+  - heading classified as junk, not carried forward as parent_heading: 'Robustness to non-line-of-sight (NLOS) Situations'
+  - heading classified as junk, not carried forward as parent_heading: 'Algorithm 1'
+applsci-15-01617-v2:
+  - heading classified as junk, not carried forward as parent_heading: 'Evaluation of activation function: O(n h ).'
+  - heading classified as junk, not carried forward as parent_heading: 'Evaluation of activation function: O(n o ).'
+deep-q-network-learning-based-downlink-resource-allocation-for-hybrid-rf-vlc-systems:
+  - 3 Private Use Area character(s)
+electronics-09-01339-v3:
+  - heading classified as junk, not carried forward as parent_heading: 'Figure 30.'
+energies-15-02814:
+  - heading classified as junk, not carried forward as parent_heading: 'SLIPT is a promising technique and has great potential in the design of next-generation'
+enhanced-visible-light-communication-for-real-time-audio-with-interference-resilient-protocols:
+  - heading classified as junk, not carried forward as parent_heading: 'Algorithmic Implementation:'
+entropy-24-01507-v2:
+  - heading classified as junk, not carried forward as parent_heading: 'State-of-the-Art Solutions Hemidodecahedral ADR with PDs with Adaptive Orientation'
+hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions:
+  - heading classified as junk, not carried forward as parent_heading: '11: Standard for WAVE-Over-the-Air Electronic Payment Data Exchange Protocol for Intelligent Transportation Systems (ITS)'
+performance-analysis-of-positioning-by-deep-reinforcement-learning-in-vlc-based-empty-office-environment:
+  - 18 Private Use Area character(s)
+performance-analysis-of-short-packets-in-noma-vlc-systems:
+  - split merged heading 'II. BACKGROUND A. SPC IN RF SYSTEMS' -> parent='II. BACKGROUND', child='A. SPC IN RF SYSTEMS'
+  - split merged heading 'III. SYSTEM MODEL AND PERFORMANCE EVALUATION A. SYSTEM MODEL' -> parent='III. SYSTEM MODEL AND PERFORMANCE EVALUATION', child='A. SYSTEM MODEL'
+  - heading classified as junk, not carried forward as parent_heading: 'Proposition 1:'
+  - heading classified as junk, not carried forward as parent_heading: 'Proof: Please see Appendix A.'
+  - heading classified as junk, not carried forward as parent_heading: 'Proof: Please see Appendix B.'
+  - heading classified as junk, not carried forward as parent_heading: 'Lemma 1:'
+  - heading classified as junk, not carried forward as parent_heading: 'Lemma 2:'
+performance-evaluation-of-short-packet-communications-in-noma-vlc-systems-with-imperfect-csi:
+  - split merged heading 'II. SYSTEM MODEL AND PRELIMINARY A. SYSTEM MODEL' -> parent='II. SYSTEM MODEL AND PRELIMINARY', child='A. SYSTEM MODEL'
+  - heading classified as junk, not carried forward as parent_heading: 'Step 3.'
+  - heading classified as junk, not carried forward as parent_heading: 'is the complexity of the functional iteration'
+photonics-11-00856:
+  - 4 Private Use Area character(s)
+photonics-12-00649:
+  - heading classified as junk, not carried forward as parent_heading: 'QPSK:'
+photonics-13-00569:
+  - heading classified as junk, not carried forward as parent_heading: 'Algorithm 1'
+photonics-13-00718:
+  - heading classified as junk, not carried forward as parent_heading: 'Data Rate Constraints:'
+  - heading classified as junk, not carried forward as parent_heading: 'OIRS Allocation Constraints:'
+  - heading classified as junk, not carried forward as parent_heading: 'RF IRS Reflection Coefficient Constraints:'
+reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review:
+  - heading classified as junk, not carried forward as parent_heading: 'FIGURE 1.'
+  - heading classified as junk, not carried forward as parent_heading: 'FIGURE 2.'
+  - heading classified as junk, not carried forward as parent_heading: 'FIGURE 5. TDMA IRS system: Adapted of [44].'
+  - heading classified as junk, not carried forward as parent_heading: 'FIGURE 13.'
+sensors-20-02261-v2:
+  - 4 Private Use Area character(s)
+  - heading classified as junk, not carried forward as parent_heading: 'Table 2.'
+sensors-20-06869-v2:
+  - 16 Private Use Area character(s)
+sensors-21-00861-v2:
+  - heading classified as junk, not carried forward as parent_heading: 'ACO-OFDM Asymmetrically clipping optical-orthogonal frequency division multiplexing'
+sensors-23-07545-v2:
+  - heading classified as junk, not carried forward as parent_heading: 'AP VLC AP RF VLC user RF user Possible movement AP association zone'
+
+Wrote /Users/diegocastillo/Desktop/rag-vlc/data/manifest.csv (36 row(s)).

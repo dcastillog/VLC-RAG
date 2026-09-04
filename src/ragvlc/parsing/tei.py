@@ -11,7 +11,7 @@ output.
 
 TEI namespace: http://www.tei-c.org/ns/1.0
 
-Three things below go beyond the base extraction rules, added after inspecting
+Five things below go beyond the base extraction rules, added after inspecting
 real GROBID output from this corpus rather than the TEI spec in the abstract:
 
 1. **Section hierarchy reconstruction.** GROBID emits a flat list of `<div>`
@@ -50,6 +50,23 @@ real GROBID output from this corpus rather than the TEI spec in the abstract:
    marked with any element we could target, it's unrecoverable, and it's
    harmless downstream since gold spans and chunks are computed against the
    same normalized text either way.
+
+4. **Untagged citation-range residue.** A citation range like "[59]-[65]" is
+   where GROBID's `<ref type="bibr">` tagging is least reliable: sometimes
+   neither endpoint gets tagged at all (the whole thing survives as bare
+   text), sometimes both are tagged but the connecting dash is a stripped
+   ref's tail and survives on its own. `_extract_inline_text` cleans up both
+   shapes -- see the comment above `_RANGE_DASH_RE`. Only strictly numeric
+   bracket contents are ever touched; `[i]`, `[Fig. 3]`, and anything
+   alphabetic pass through untouched.
+
+5. **Misplaced captions.** A table or figure caption GROBID fails to
+   recognise as a `<figure>` at all becomes an ordinary `<p>` -- structurally
+   identical to real prose. `_looks_like_misplaced_caption` catches the one
+   remaining signal (the paragraph's *entire* text is just the caption line)
+   and reclassifies that paragraph as a `caption` unit instead of a `section`
+   one, so caption text ends up in caption units only, never duplicated into
+   or stranded in the flowing prose.
 """
 
 from __future__ import annotations
@@ -118,6 +135,70 @@ class ParsedPaper:
 # --------------------------------------------------------------------------- #
 # Inline text extraction (shared by headings, abstract, paragraphs, captions)
 # --------------------------------------------------------------------------- #
+# A citation *range* like "[59]-[65]" is where GROBID's bibr tagging is least
+# reliable. Two shapes show up in this corpus, and they need two different
+# fixes:
+#
+#   (a) Neither endpoint is tagged at all -- the whole "[59]-[65]" is bare
+#       text GROBID never recognised as a reference, so the tree-walk below
+#       never touches it. Cleaned up textually, after the walk: see
+#       _strip_untagged_citation_residue.
+#   (b) Both endpoints *are* tagged and get stripped as usual, but the "-"
+#       between them is the first ref's *tail* -- ordinary text as far as the
+#       walk is concerned, so it survives (this is the same mechanism that
+#       produces "2024 , which" from a single stripped citation, just with a
+#       bare dash instead of a comma). Fixed structurally, during the walk:
+#       see the tail-dropping check below, which only fires when the tail is
+#       *exactly* a dash and the very next sibling is another bibr ref.
+_RANGE_DASH_RE = re.compile(r"^\s*[-–]\s*$")  # bare hyphen or en dash, nothing else
+
+
+def _next_is_bibr_ref(elem: etree._Element) -> bool:
+    nxt = elem.getnext()
+    return nxt is not None and etree.QName(nxt).localname == "ref" and nxt.get("type") == "bibr"
+
+
+def _extract_text_recursive(elem: etree._Element) -> str:
+    """The tree-walk half of inline text extraction -- see `_extract_inline_text`
+    for the full contract. Structural cases only; text-level cleanup of
+    citation residue that was never tagged happens once, after this returns.
+    """
+    parts: list[str] = []
+    if elem.text:
+        parts.append(elem.text)
+    for child in elem:
+        local = etree.QName(child).localname
+        is_bibr_ref = local == "ref" and child.get("type") == "bibr"
+        if is_bibr_ref or local == "formula":
+            pass
+        else:
+            parts.append(_extract_text_recursive(child))
+
+        tail = child.tail or ""
+        if is_bibr_ref and tail and _RANGE_DASH_RE.match(tail) and _next_is_bibr_ref(child):
+            pass  # orphan range-dash between two adjacent stripped citations -- drop it too
+        elif tail:
+            parts.append(tail)
+    return "".join(parts)
+
+
+# Case (a) above: a bracketed numeric citation (or a dash/en-dash-joined range
+# of them) that was never wrapped in <ref type="bibr"> in the first place, so
+# nothing in _extract_text_recursive could have touched it. Anchored to
+# digits only -- [i], [Fig. 3], and anything alphabetic must survive untouched.
+# The comma/space debris left behind (e.g. "for instance , , further" from a
+# fully-untagged "[59], [60]") is exactly the shape normalize()'s punctuation
+# rules already exist to collapse -- so it's deliberately left for that
+# downstream, frozen-contract step rather than duplicated here.
+_UNTAGGED_CITATION_RANGE_RE = re.compile(r"\[\d+\](?:\s*[-–]\s*\[\d+\])+")
+_UNTAGGED_CITATION_RE = re.compile(r"\[\d+\]")
+
+
+def _strip_untagged_citation_residue(text: str) -> str:
+    text = _UNTAGGED_CITATION_RANGE_RE.sub("", text)
+    return _UNTAGGED_CITATION_RE.sub("", text)
+
+
 def _extract_inline_text(elem: etree._Element) -> str:
     """Depth-first text extraction that applies PROMPT_1's inline-element rules.
 
@@ -134,21 +215,13 @@ def _extract_inline_text(elem: etree._Element) -> str:
       for flagging the containing unit.
     - everything else (including `<ref type="figure/table/...">`): recurse and
       keep both its text and its tail.
+
+    A citation *range* left partly or wholly untagged by GROBID (see the
+    comment above `_RANGE_DASH_RE`) is cleaned up as the last step, so this
+    function's output never contains a bare "[59]-[65]"-shaped remnant.
     """
-    parts: list[str] = []
-    if elem.text:
-        parts.append(elem.text)
-    for child in elem:
-        local = etree.QName(child).localname
-        if local == "ref" and child.get("type") == "bibr":
-            pass
-        elif local == "formula":
-            pass
-        else:
-            parts.append(_extract_inline_text(child))
-        if child.tail:
-            parts.append(child.tail)
-    return "".join(parts)
+    text = _extract_text_recursive(elem)
+    return _strip_untagged_citation_residue(text)
 
 
 def _clean_ws(text: str) -> str:
@@ -379,8 +452,9 @@ _NO_DIV_CONTEXT = _SectionContext(
 )
 
 
-def _make_unit(unit_type: str, elem: etree._Element, ctx: _SectionContext) -> Unit:
-    raw_text = _extract_inline_text(elem)
+def _make_unit(unit_type: str, elem: etree._Element, ctx: _SectionContext, *, raw_text: str | None = None) -> Unit:
+    if raw_text is None:
+        raw_text = _extract_inline_text(elem)
     n_pua, n_replacement, non_ascii_ratio = _char_composition_stats(raw_text)
     return Unit(
         type=unit_type,
@@ -491,6 +565,22 @@ def _extract_header(root: etree._Element, abstract: tuple[str, bool] | None) -> 
 # --------------------------------------------------------------------------- #
 _EXCLUDED_HEADING_RE = re.compile(r"references|bibliography|acknowledg", re.IGNORECASE)
 
+# A table or figure caption that GROBID failed to recognise as a <figure> at
+# all (observed: a paper with seven "TABLE N." captions in its prose and only
+# two real <figure> elements, neither a table) ends up as an ordinary <p> --
+# structurally indistinguishable from a real paragraph. The only signal left
+# is textual: such a paragraph's *entire* content is just the caption line,
+# whereas a real paragraph that merely mentions "Table 3" never is. Anchored
+# full-match, case-sensitive to the ALL-CAPS "TABLE"/"FIGURE" this corpus's
+# real figDesc captions consistently use, so an ordinary sentence that opens
+# with "Table 3 shows ..." (no period right after the number, and not the
+# paragraph's entire text) is never caught.
+_MISPLACED_CAPTION_RE = re.compile(r"^(?:TABLE|FIGURE)\s+\d+\.\s+\S.*$", re.DOTALL)
+
+
+def _looks_like_misplaced_caption(raw_text: str) -> bool:
+    return bool(_MISPLACED_CAPTION_RE.match(_clean_ws(raw_text)))
+
 
 def _resolve_div_heading(
     head_elem: etree._Element | None,
@@ -573,7 +663,9 @@ def _extract_body_units(root: etree._Element) -> tuple[list[Unit], list[str]]:
             )
 
             for p in child.findall(_q("p")):
-                units.append(_make_unit("section", p, current_context))
+                raw_text = _extract_inline_text(p)
+                unit_type = "caption" if _looks_like_misplaced_caption(raw_text) else "section"
+                units.append(_make_unit(unit_type, p, current_context, raw_text=raw_text))
 
         elif local == "figure":
             ctx = current_context or _NO_DIV_CONTEXT
