@@ -13,6 +13,7 @@ data/pdfs/
 data/parsed/
 data/tei/
 data/crossref/
+data/normalized
 .env
 
 #Prompts
