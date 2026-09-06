@@ -185,6 +185,8 @@ class Paths(BaseModel):
     config_dir: Path
     manifest_csv: Path
     doi_overrides_csv: Path
+    eval_dir: Path
+    questions_jsonl: Path
 
     @classmethod
     def from_root(cls, root: Path) -> Paths:
@@ -198,6 +200,10 @@ class Paths(BaseModel):
             config_dir=root / "config",
             manifest_csv=data / "manifest.csv",
             doi_overrides_csv=data / "doi_overrides.csv",
+            eval_dir=data / "eval",
+            # The frozen evaluation set. "v2" is the working version referenced by
+            # PROMPT_2; the earlier data/eval/questions.jsonl is kept only for history.
+            questions_jsonl=data / "eval" / "questions.v2.jsonl",
         )
 
     def mkdirs(self) -> None:
