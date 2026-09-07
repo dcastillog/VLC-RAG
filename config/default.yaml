@@ -32,3 +32,19 @@ parsing:
     min_mean_unit_chars: 100    # lower -> likely fragmented
     min_alpha_ratio: 0.7        # lower -> likely garbled
     max_non_ascii_ratio: 0.02   # higher -> likely broken math-font encoding
+
+chunking:
+  tokenizer_model: "BAAI/bge-small-en-v1.5"  # token counts come from THIS model's
+                                             # tokenizer, not whitespace: the embedder
+                                             # truncates silently at 512 tokens and an
+                                             # approximate count would hide lost tails.
+  max_tokens: 400              # single per-chunk budget both chunkers obey; 400 < 512
+                               # leaves headroom for [CLS]/[SEP] and the query prefix.
+  fixed:
+    overlap_tokens: 60         # tokens shared between consecutive fixed-size chunks
+  section_aware:
+    min_chunk_tokens: 50       # a unit smaller than this merges into an adjacent unit,
+                               # but only when both share the same section_heading
+    min_indexed_tokens: 15     # section_aware only: chunks below this are dropped, not
+                               # indexed (near-zero signal, still cost a top-k slot).
+                               # fixed is exempt -- its short chunks are real paper tails.

@@ -144,10 +144,48 @@ class ParsingConfig(_StrictModel):
     unit_separator: str = "\n\n"
 
 
+class FixedChunkingConfig(_StrictModel):
+    """Knobs specific to the structure-blind ``fixed`` chunker."""
+
+    overlap_tokens: int = 60  # tokens shared between consecutive chunks
+
+
+class SectionAwareChunkingConfig(_StrictModel):
+    """Knobs specific to the ``section_aware`` chunker."""
+
+    # A unit smaller than this is merged into an adjacent unit -- but only when
+    # both units carry the same section_heading (see the chunker for why).
+    min_chunk_tokens: int = 50
+
+    # After chunking, a chunk with fewer than this many tokens is dropped
+    # rather than indexed: a handful-of-tokens caption fragment carries almost
+    # no retrievable signal but still consumes a top-k slot and pool-judging
+    # effort. Deliberately applied to section_aware only -- fixed's short
+    # chunks are one-per-paper tails of real content, and keeping the asymmetry
+    # keeps the comparison honest about what each strategy actually indexes.
+    min_indexed_tokens: int = 15
+
+
+class ChunkingConfig(_StrictModel):
+    """Everything that governs stage 2's chunking (normalized text -> chunks).
+
+    ``max_tokens`` is a single budget both chunkers obey. It is deliberately
+    below the embedding model's hard 512-token limit: the model truncates
+    silently past 512, so a chunk measured at exactly the limit could still
+    lose its tail once a query-time prefix or the [CLS]/[SEP] pair is added.
+    """
+
+    tokenizer_model: str = "BAAI/bge-small-en-v1.5"
+    max_tokens: int = 400
+    fixed: FixedChunkingConfig = Field(default_factory=FixedChunkingConfig)
+    section_aware: SectionAwareChunkingConfig = Field(default_factory=SectionAwareChunkingConfig)
+
+
 class ExperimentConfig(_StrictModel):
-    """Root of the YAML config. Only parsing keys exist at this stage."""
+    """Root of the YAML config."""
 
     parsing: ParsingConfig = Field(default_factory=ParsingConfig)
+    chunking: ChunkingConfig = Field(default_factory=ChunkingConfig)
 
 
 DEFAULT_CONFIG_PATH: Path = PROJECT_ROOT / "config" / "default.yaml"

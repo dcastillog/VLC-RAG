@@ -14,6 +14,7 @@ data/parsed/
 data/tei/
 data/crossref/
 data/normalized
+data/chunks/
 .env
 
 #Prompts
