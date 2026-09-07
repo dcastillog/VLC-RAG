@@ -55,6 +55,11 @@ retrieval:
   # Prepended to queries only (never to documents). BGE is trained with this
   # asymmetry; kept in exactly one place so the two sides cannot drift.
   query_prefix: "Represent this sentence for searching relevant passages: "
+  prefetch_limit: 100          # candidates per hybrid branch before fusion; recall ceiling.
+                               # 100 not 50: the Phase E pool is built once from these hits,
+                               # so this also permanently bounds the judged ground truth. At
+                               # ~3.3k vectors with exact search the extra cost is negligible.
+  rrf_k: 2                      # Qdrant default; original RRF paper uses 60. Phase G sweeps it.
   qdrant:
     collections:
       fixed: "vlc_fixed"

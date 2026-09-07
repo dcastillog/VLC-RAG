@@ -86,14 +86,22 @@ class Embedder:
             for d, s in zip(dense, sparse)
         ]
 
-    def embed_query(self, text: str) -> Embedding:
-        """Embed a query -- dense side gets the BGE instruction prefix."""
-        dense = next(iter(self._dense_model().embed([self._query_prefix + text])))
+    def embed_query_dense(self, text: str) -> list[float]:
+        """Dense query vector. This is the *only* place the BGE instruction
+        prefix is added -- documents are embedded raw in ``embed_documents``."""
+        vector = next(iter(self._dense_model().embed([self._query_prefix + text])))
+        return [float(x) for x in vector]
+
+    def embed_query_sparse(self, text: str) -> SparseVec:
+        """Sparse (BM25) query vector -- presence weights; Qdrant applies IDF."""
         sparse = next(iter(self._sparse_model().query_embed([text])))
-        return Embedding(
-            dense=[float(x) for x in dense],
-            sparse=SparseVec(
-                indices=[int(i) for i in sparse.indices],
-                values=[float(v) for v in sparse.values],
-            ),
+        return SparseVec(
+            indices=[int(i) for i in sparse.indices],
+            values=[float(v) for v in sparse.values],
         )
+
+    def embed_query(self, text: str) -> Embedding:
+        """Both query vectors. Phase D's search times the two halves
+        separately and skips whichever a single-vector mode does not need, so
+        it calls the two methods above rather than this one."""
+        return Embedding(dense=self.embed_query_dense(text), sparse=self.embed_query_sparse(text))

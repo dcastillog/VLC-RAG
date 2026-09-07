@@ -20,6 +20,14 @@ from ragvlc.retrieval.collections import (
 from ragvlc.retrieval.embed import Embedder, Embedding, SparseVec
 from ragvlc.retrieval.ingest import IngestStats, ingest, load_chunk_records, point_id
 from ragvlc.retrieval.payload import PAYLOAD_FIELDS, build_payload
+from ragvlc.retrieval.search import (
+    SEARCH_MODES,
+    Hit,
+    Searcher,
+    SearchMode,
+    Timings,
+    build_filter,
+)
 
 __all__ = [
     "DENSE_VECTOR",
@@ -34,4 +42,10 @@ __all__ = [
     "point_id",
     "PAYLOAD_FIELDS",
     "build_payload",
+    "Searcher",
+    "SearchMode",
+    "SEARCH_MODES",
+    "Hit",
+    "Timings",
+    "build_filter",
 ]

@@ -213,6 +213,20 @@ class RetrievalConfig(_StrictModel):
     dense_model: str = "BAAI/bge-small-en-v1.5"
     sparse_model: str = "Qdrant/bm25"
     query_prefix: str = "Represent this sentence for searching relevant passages: "
+
+    # Hybrid retrieval: each prefetch branch (dense, sparse) fetches this many
+    # candidates before fusion. Fusion only *reorders* their union, so this
+    # number is the recall ceiling for every hybrid mode -- a gold chunk that
+    # neither branch returns in its top prefetch_limit can never be retrieved.
+    # Set to 100 (not Qdrant-ish 50): the Phase E pool is built once from these
+    # results and permanently bounds the judged ground truth; exact search over
+    # ~3.3k vectors makes the wider prefetch essentially free.
+    prefetch_limit: int = 100
+    # RRF rank constant. Qdrant defaults to 2; the original RRF paper
+    # (Cormack et al. 2009) uses 60. Larger k flattens the contribution
+    # gap between ranks. Phase G sweeps this.
+    rrf_k: int = 2
+
     qdrant: QdrantIndexConfig = Field(default_factory=QdrantIndexConfig)
 
 
