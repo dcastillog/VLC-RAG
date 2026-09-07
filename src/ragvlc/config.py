@@ -23,7 +23,7 @@ from functools import lru_cache
 from pathlib import Path
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -66,6 +66,10 @@ class Settings(BaseSettings):
         default="http://localhost:8070",
         description="Base URL of the GROBID service.",
     )
+    qdrant_url: str = Field(
+        default="http://localhost:6333",
+        description="Base URL of the Qdrant server (local Docker, per CLAUDE.md).",
+    )
     crossref_mailto: str = Field(
         description="Contact email sent as ?mailto= to the Crossref API.",
     )
@@ -80,7 +84,7 @@ class Settings(BaseSettings):
             raise ValueError(f"does not look like an email address: {value!r}")
         return value
 
-    @field_validator("grobid_url")
+    @field_validator("grobid_url", "qdrant_url")
     @classmethod
     def _strip_trailing_slash(cls, value: str) -> str:
         return value.rstrip("/")
@@ -181,11 +185,55 @@ class ChunkingConfig(_StrictModel):
     section_aware: SectionAwareChunkingConfig = Field(default_factory=SectionAwareChunkingConfig)
 
 
+class QdrantIndexConfig(_StrictModel):
+    """Where each chunker's chunks land in Qdrant, and how they get there."""
+
+    # chunker name -> collection name. The CLI alias "section" maps to
+    # "section_aware" (see scripts/ingest.py); collections stay short.
+    collections: dict[str, str] = Field(
+        default_factory=lambda: {"fixed": "vlc_fixed", "section_aware": "vlc_section"}
+    )
+    upsert_batch_size: int = 128
+    # Lowering this in a Phase G experiment forces Qdrant to build an HNSW
+    # index even for this small corpus; the default (20 MB) leaves the
+    # collections doing exact search. Kept here so that experiment is a config
+    # change, not a code change.
+    indexing_threshold_kb: int | None = None  # None -> Qdrant's default
+
+
+class RetrievalConfig(_StrictModel):
+    """Embedding models and the query/document asymmetry.
+
+    ``query_prefix`` lives here and nowhere else: BGE models are trained with
+    this instruction prepended to queries but not to documents, and if the two
+    sides ever disagreed on it, recall would drop with nothing in the code to
+    point at. Ingestion embeds documents raw; only query embedding prepends it.
+    """
+
+    dense_model: str = "BAAI/bge-small-en-v1.5"
+    sparse_model: str = "Qdrant/bm25"
+    query_prefix: str = "Represent this sentence for searching relevant passages: "
+    qdrant: QdrantIndexConfig = Field(default_factory=QdrantIndexConfig)
+
+
 class ExperimentConfig(_StrictModel):
     """Root of the YAML config."""
 
     parsing: ParsingConfig = Field(default_factory=ParsingConfig)
     chunking: ChunkingConfig = Field(default_factory=ChunkingConfig)
+    retrieval: RetrievalConfig = Field(default_factory=RetrievalConfig)
+
+    @model_validator(mode="after")
+    def _dense_model_matches_tokenizer(self) -> ExperimentConfig:
+        # Chunk token budgets are counted with chunking.tokenizer_model; the
+        # embedder truncates with retrieval.dense_model's tokenizer. If these
+        # are different models the budgets stop meaning anything.
+        if self.chunking.tokenizer_model != self.retrieval.dense_model:
+            raise ValueError(
+                "chunking.tokenizer_model and retrieval.dense_model must be the same model "
+                f"({self.chunking.tokenizer_model!r} != {self.retrieval.dense_model!r})"
+            )
+        return self
 
 
 DEFAULT_CONFIG_PATH: Path = PROJECT_ROOT / "config" / "default.yaml"

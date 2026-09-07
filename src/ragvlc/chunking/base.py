@@ -49,11 +49,22 @@ class Unit:
 
 @dataclass(frozen=True)
 class Paper:
-    """A parsed paper: the frozen canonical text plus its unit boundaries."""
+    """A parsed paper: the frozen canonical text plus its unit boundaries.
+
+    The bibliographic fields (``doi`` .. ``licence``) are carried through for
+    Phase C's Qdrant payload; the chunkers themselves only touch ``text`` and
+    ``units``. They default to ``None`` so a hand-built test ``Paper`` need not
+    supply them.
+    """
 
     paper_id: str
     text: str
     units: tuple[Unit, ...]
+    doi: str | None = None
+    title: str | None = None
+    year: int | None = None
+    venue: str | None = None
+    licence: str | None = None
 
     @classmethod
     def from_normalized(cls, json_path: Path) -> Paper:
@@ -74,7 +85,16 @@ class Paper:
             )
             for u in doc.get("units", [])
         )
-        return cls(paper_id=doc["paper_id"], text=text, units=units)
+        return cls(
+            paper_id=doc["paper_id"],
+            text=text,
+            units=units,
+            doi=doc.get("doi"),
+            title=doc.get("title"),
+            year=doc.get("year"),
+            venue=doc.get("venue"),
+            licence=doc.get("licence"),
+        )
 
 
 @dataclass(frozen=True)
