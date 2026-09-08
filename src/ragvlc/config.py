@@ -70,6 +70,24 @@ class Settings(BaseSettings):
         default="http://localhost:6333",
         description="Base URL of the Qdrant server (local Docker, per CLAUDE.md).",
     )
+    llm_base_url: str = Field(
+        default="http://localhost:11434/v1",
+        description=(
+            "Base URL of the OpenAI-compatible chat-completions endpoint. Defaults to "
+            "Ollama running natively on the host; a hosted provider is a value change here, "
+            "not a code change (see ragvlc.generation.client)."
+        ),
+    )
+    llm_model: str = Field(
+        description="Model name passed to the chat-completions endpoint, e.g. 'qwen3:4b'.",
+    )
+    llm_api_key: str = Field(
+        default="ollama",
+        description=(
+            "Bearer token for the chat-completions endpoint. Ignored by a local Ollama but "
+            "required by the OpenAI-compatible schema; set it for a hosted provider."
+        ),
+    )
     crossref_mailto: str = Field(
         description="Contact email sent as ?mailto= to the Crossref API.",
     )
@@ -84,7 +102,7 @@ class Settings(BaseSettings):
             raise ValueError(f"does not look like an email address: {value!r}")
         return value
 
-    @field_validator("grobid_url", "qdrant_url")
+    @field_validator("grobid_url", "qdrant_url", "llm_base_url")
     @classmethod
     def _strip_trailing_slash(cls, value: str) -> str:
         return value.rstrip("/")
@@ -253,6 +271,25 @@ class EvalConfig(_StrictModel):
     idf_corpus_chunker: str = "fixed"
 
 
+class GenerationConfig(_StrictModel):
+    """Knobs for the grounded answer layer (Phase A).
+
+    ``temperature`` defaults to 0.0 on purpose: a project whose selling point is
+    measurement should not ship a nondeterministic answer layer without saying
+    so. ``timeout_seconds`` matches GROBID's -- a small local model can take
+    tens of seconds on a long context.
+    """
+
+    top_k: int = 5  # chunks retrieved and stuffed into the context block
+    temperature: float = 0.0
+    # Ceiling on generated tokens. Generous on purpose: a reasoning model
+    # (qwen3, ...) spends completion tokens on a chain of thought before the
+    # answer, and a budget that only fits a plain answer gets consumed by the
+    # thinking with nothing left -- which surfaces as a GenerationError.
+    max_tokens: int = 4096
+    timeout_seconds: float = 120.0
+
+
 class ExperimentConfig(_StrictModel):
     """Root of the YAML config."""
 
@@ -260,6 +297,7 @@ class ExperimentConfig(_StrictModel):
     chunking: ChunkingConfig = Field(default_factory=ChunkingConfig)
     retrieval: RetrievalConfig = Field(default_factory=RetrievalConfig)
     eval: EvalConfig = Field(default_factory=EvalConfig)
+    generation: GenerationConfig = Field(default_factory=GenerationConfig)
 
     @model_validator(mode="after")
     def _dense_model_matches_tokenizer(self) -> ExperimentConfig:

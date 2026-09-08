@@ -67,6 +67,15 @@ retrieval:
     upsert_batch_size: 128
     indexing_threshold_kb: null   # null -> Qdrant default (~20 MB); Phase G lowers it
 
+generation:
+  top_k: 5                     # chunks retrieved and numbered [1]..[k] in the context block
+  temperature: 0.0             # deterministic by default -- a measurement project should not
+                               # ship a nondeterministic answer layer without saying so
+  max_tokens: 4096             # ceiling on generated tokens -- generous: a reasoning model
+                               # (qwen3) spends completion tokens thinking before it answers,
+                               # and too small a budget gets eaten before any answer text
+  timeout_seconds: 120         # a small local model can take tens of seconds on a long context
+
 eval:
   relevance_threshold: 0.5     # chunk is relevant when overlap >= this fraction of
                                # min(len(chunk), len(gold_span)) -- symmetric, so it

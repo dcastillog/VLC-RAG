@@ -16,11 +16,12 @@ data/crossref/
 data/normalized
 data/chunks/
 data/eval/questions.jsonl
-data/eval/judgements.jsonl
+data/eval/judgments.jsonl
 .env
 
 #Prompts
 PROMPT_1_parsing.md
 PROMPT_2_retrieval_eval.md
+PROMPT_3_generation.md
 
 .DS_Store
