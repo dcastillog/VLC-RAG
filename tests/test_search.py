@@ -35,6 +35,54 @@ def test_search_rejects_unknown_mode():
         Searcher(None, None).search("vlc_section", "q", "bm25")
 
 
+class _FakePoint:
+    def __init__(self, point_id: str, score: float, payload: dict) -> None:
+        self.id = point_id
+        self.score = score
+        self.payload = payload
+
+
+class _FakeResponse:
+    def __init__(self, points: list[_FakePoint]) -> None:
+        self.points = points
+
+
+class _FakeClient:
+    """A plain stub of the one method `search` calls -- not a mock of Qdrant
+    itself, just fixed data to prove the tie-break sort runs regardless of
+    what order the points arrived in."""
+
+    def __init__(self, points: list[_FakePoint]) -> None:
+        self._points = points
+
+    def query_points(self, *args, **kwargs):  # noqa: ARG002
+        return _FakeResponse(self._points)
+
+
+class _FakeEmbedder:
+    def embed_query_dense(self, text: str) -> list[float]:  # noqa: ARG002
+        return [0.0]
+
+
+def test_search_breaks_score_ties_deterministically_by_chunk_id():
+    """Qdrant does not promise a stable order among tied scores -- it can
+    vary run to run with the same data. Feed points back tied and
+    out-of-chunk_id-order; `search` must still return them sorted by
+    (-score, chunk_id), never Qdrant's arrival order."""
+    points = [
+        _FakePoint("id-b", 0.9, {"chunk_id": "paper:fixed:0002"}),
+        _FakePoint("id-a", 0.9, {"chunk_id": "paper:fixed:0001"}),  # tied with id-b, arrives second
+        _FakePoint("id-c", 0.5, {"chunk_id": "paper:fixed:0000"}),  # lower score but "smaller" chunk_id
+    ]
+    searcher = Searcher(_FakeClient(points), _FakeEmbedder())
+    hits, _ = searcher.search("coll", "q", "dense")
+    assert [h.payload["chunk_id"] for h in hits] == [
+        "paper:fixed:0001",  # tied at 0.9, wins the chunk_id tiebreak
+        "paper:fixed:0002",  # tied at 0.9
+        "paper:fixed:0000",  # lower score always loses regardless of chunk_id
+    ]
+
+
 # --------------------------------------------------------------------------- #
 # Live -- needs Qdrant + ingested collections
 # --------------------------------------------------------------------------- #

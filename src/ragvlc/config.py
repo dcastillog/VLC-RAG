@@ -230,12 +230,36 @@ class RetrievalConfig(_StrictModel):
     qdrant: QdrantIndexConfig = Field(default_factory=QdrantIndexConfig)
 
 
+class EvalConfig(_StrictModel):
+    """Knobs for pooling, judging, and metrics (Phase E-G)."""
+
+    # A chunk counts as relevant to a gold span when their character overlap is
+    # at least this fraction of the *shorter* of the two lengths. Dividing by
+    # the shorter length (not the gold span) makes the rule symmetric: a short
+    # chunk fully inside a long span, and a long chunk fully covering a short
+    # span, both score 1.0. See ragvlc.eval.relevance.
+    relevance_threshold: float = 0.5
+
+    # Phase F
+    success_at_k: list[int] = Field(default_factory=lambda: [1, 3, 5, 10])
+    mrr_k: int = 10  # primary metric: MRR@10
+    random_seed: int = 42
+    bootstrap_resamples: int = 10_000
+    # Which chunker's chunk set defines the document-frequency corpus for the
+    # IDF-overlap regression. Arbitrary but fixed: both chunkers cover the same
+    # underlying papers, so their IDF statistics are close enough that the
+    # choice does not matter -- the regression is about the question/gold-span
+    # pair, not about which chunker produced the corpus.
+    idf_corpus_chunker: str = "fixed"
+
+
 class ExperimentConfig(_StrictModel):
     """Root of the YAML config."""
 
     parsing: ParsingConfig = Field(default_factory=ParsingConfig)
     chunking: ChunkingConfig = Field(default_factory=ChunkingConfig)
     retrieval: RetrievalConfig = Field(default_factory=RetrievalConfig)
+    eval: EvalConfig = Field(default_factory=EvalConfig)
 
     @model_validator(mode="after")
     def _dense_model_matches_tokenizer(self) -> ExperimentConfig:
@@ -287,6 +311,9 @@ class Paths(BaseModel):
     doi_overrides_csv: Path
     eval_dir: Path
     questions_jsonl: Path
+    pool_jsonl: Path
+    judgments_jsonl: Path
+    chunks_dir: Path
 
     @classmethod
     def from_root(cls, root: Path) -> Paths:
@@ -304,6 +331,9 @@ class Paths(BaseModel):
             # The frozen evaluation set. "v2" is the working version referenced by
             # PROMPT_2; the earlier data/eval/questions.jsonl is kept only for history.
             questions_jsonl=data / "eval" / "questions.v2.jsonl",
+            pool_jsonl=data / "eval" / "pool.jsonl",
+            judgments_jsonl=data / "eval" / "judgments.jsonl",
+            chunks_dir=data / "chunks",
         )
 
     def mkdirs(self) -> None:

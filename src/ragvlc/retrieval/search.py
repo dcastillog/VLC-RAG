@@ -60,6 +60,7 @@ def _ms(since: float) -> float:
 
 def build_filter(
     *,
+    paper_id: str | None = None,
     year_min: int | None = None,
     year_max: int | None = None,
     venue: str | None = None,
@@ -69,6 +70,8 @@ def build_filter(
     ``None`` when nothing is constrained (so callers can pass it straight
     through)."""
     must: list[models.FieldCondition] = []
+    if paper_id is not None:
+        must.append(models.FieldCondition(key="paper_id", match=models.MatchValue(value=paper_id)))
     if year_min is not None or year_max is not None:
         must.append(
             models.FieldCondition(key="year", range=models.Range(gte=year_min, lte=year_max))
@@ -118,7 +121,12 @@ class Searcher:
         mode: SearchMode,
         limit: int = 10,
         filters: models.Filter | None = None,
+        *,
+        rrf_k: int | None = None,
     ) -> tuple[list[Hit], Timings]:
+        """``rrf_k`` overrides the instance's RRF rank constant for this one
+        call (mode ``hybrid_rrf`` only) -- Phase G sweeps it without needing a
+        new ``Searcher`` per value."""
         if mode not in SEARCH_MODES:
             raise ValueError(f"unknown mode {mode!r}; expected one of {SEARCH_MODES}")
 
@@ -158,7 +166,7 @@ class Searcher:
             if mode == "hybrid_rrf":
                 # RrfQuery, not FusionQuery(RRF), so k is configurable. Qdrant's
                 # default k is 2; the original RRF paper uses 60. Phase G sweeps it.
-                fusion = models.RrfQuery(rrf=models.Rrf(k=self._rrf_k))
+                fusion = models.RrfQuery(rrf=models.Rrf(k=rrf_k if rrf_k is not None else self._rrf_k))
             else:
                 fusion = models.FusionQuery(fusion=models.Fusion.DBSF)
             response = self._client.query_points(
@@ -170,6 +178,14 @@ class Searcher:
             Hit(point_id=str(point.id), score=float(point.score), payload=dict(point.payload or {}))
             for point in response.points
         ]
+        # Score ties are common (RRF scores are a small set of rational
+        # numbers; exact-search cosine ties happen too) and Qdrant does not
+        # promise a stable order among them -- it can vary run to run with the
+        # same data (segment iteration order, thread scheduling). Re-sorting
+        # by (-score, chunk_id) makes the result order a pure function of the
+        # collection's contents, not of how Qdrant happened to merge segments
+        # this time -- required for run_eval.py to be reproducible.
+        hits.sort(key=lambda h: (-h.score, h.payload.get("chunk_id", "")))
         timings = Timings(
             dense_embed=dense_ms,
             sparse_embed=sparse_ms,

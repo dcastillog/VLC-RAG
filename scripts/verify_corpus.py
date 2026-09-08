@@ -33,11 +33,12 @@ the same normalized text:
    and any `paper_id` already filled in on the question agrees with that
    resolution (so a bad `eval_set.py backfill` is caught here).
 7. For every entry in a question's `gold_spans`, the text at
-   `[char_start:char_end]` in that paper's `.txt` equals the span's `text`
-   field exactly. This is the eval-set equivalent of check 3: a gold span is
-   just an offset into the frozen text, and relevance in Phase F is judged by
-   character overlap, so an offset that has drifted off its text corrupts
-   every metric computed against it.
+   `[char_start:char_end]` in **that span's `paper_id`** `.txt` equals the
+   span's `text` field exactly, and that `paper_id` matches the question's
+   paper. This is the eval-set equivalent of check 3: a gold span is just an
+   offset into the frozen text, and relevance in Phase F is judged by
+   character overlap, so an offset that has drifted off its text -- or points
+   at the wrong paper -- corrupts every metric computed against it.
 
 Run this before every annotation session and at the start of every
 evaluation run: once a gold span is recorded as an offset into one of these
@@ -251,24 +252,31 @@ def _verify_eval_set(questions_jsonl: Path, manifest_csv: Path, normalized_dir: 
             if not gold_spans:
                 continue
 
-            paper_id = resolved_paper_id or stated_paper_id
-            if paper_id is None:
-                problems.append(f"{qid}: has {len(gold_spans)} gold_span(s) but no resolvable paper")
-                continue
-            text = load_text(paper_id)
-            if text is None:
-                problems.append(f"{qid}: gold_spans reference paper {paper_id!r} with no .txt in {normalized_dir}")
-                continue
+            question_paper_id = resolved_paper_id or stated_paper_id
 
             for i, span in enumerate(gold_spans):
                 label = f"{qid}: gold_spans[{i}]"
                 start, end, span_text = span.get("char_start"), span.get("char_end"), span.get("text")
+                # Each span carries its own paper_id (Phase E onwards); fall back
+                # to the question's paper for any span written before that.
+                span_paper_id = span.get("paper_id") or question_paper_id
                 if not isinstance(start, int) or not isinstance(end, int) or not isinstance(span_text, str):
                     problems.append(f"{label}: missing/invalid char_start, char_end, or text")
                     continue
+                if span_paper_id is None:
+                    problems.append(f"{label}: no paper_id (and the question's DOI does not resolve)")
+                    continue
+                if question_paper_id is not None and span_paper_id != question_paper_id:
+                    problems.append(
+                        f"{label}: paper_id {span_paper_id!r} != the question's paper {question_paper_id!r}"
+                    )
+                text = load_text(span_paper_id)
+                if text is None:
+                    problems.append(f"{label}: references paper {span_paper_id!r} with no .txt in {normalized_dir}")
+                    continue
                 if not (0 <= start < end <= len(text)):
                     problems.append(
-                        f"{label}: char range [{start}:{end}] is out of bounds for {paper_id!r} "
+                        f"{label}: char range [{start}:{end}] is out of bounds for {span_paper_id!r} "
                         f"(len {len(text)})"
                     )
                     continue

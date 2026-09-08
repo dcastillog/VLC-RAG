@@ -66,3 +66,13 @@ retrieval:
       section_aware: "vlc_section"
     upsert_batch_size: 128
     indexing_threshold_kb: null   # null -> Qdrant default (~20 MB); Phase G lowers it
+
+eval:
+  relevance_threshold: 0.5     # chunk is relevant when overlap >= this fraction of
+                               # min(len(chunk), len(gold_span)) -- symmetric, so it
+                               # does not matter which chunker produced the judged span
+  success_at_k: [1, 3, 5, 10]
+  mrr_k: 10                    # primary metric: MRR@10
+  random_seed: 42
+  bootstrap_resamples: 10000
+  idf_corpus_chunker: "fixed"  # arbitrary but fixed -- see EvalConfig docstring
