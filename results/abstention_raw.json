@@ -1,0 +1,3126 @@
+{
+  "config": {
+    "generated_at": "2026-09-09T00:13:12.331464+00:00",
+    "git_commit": "f8a1112a56f4b81c817220198cbb41b57904c41d",
+    "models": [
+      "qwen2.5:3b",
+      "qwen3:4b"
+    ],
+    "questions_file": "questions.v2.jsonl",
+    "n_answerable": 65,
+    "n_negative": 17,
+    "mode": "hybrid_dbsf",
+    "collection": "vlc_section",
+    "top_k": 5,
+    "temperature": 0.0,
+    "max_tokens": 4096,
+    "timeout_seconds": 120.0,
+    "llm_base_url": "http://localhost:11434/v1",
+    "dense_model": "BAAI/bge-small-en-v1.5",
+    "sparse_model": "Qdrant/bm25",
+    "prefetch_limit": 100,
+    "rrf_k": 2
+  },
+  "fso_probe": {
+    "qwen2.5:3b": {
+      "error": null,
+      "abstained": true,
+      "generation_ms": 2304.2988750003133,
+      "invalid_citations": [],
+      "citations": [],
+      "text": "The provided sources do not cover the question about the limit for FSO links with severe fog."
+    },
+    "qwen3:4b": {
+      "error": null,
+      "abstained": false,
+      "generation_ms": 39271.90316699853,
+      "invalid_citations": [],
+      "citations": [
+        {
+          "index": 2,
+          "paper_id": "photonics-12-00649",
+          "doi": "10.3390/photonics12070649",
+          "char_start": 25716,
+          "char_end": 26275
+        }
+      ],
+      "text": "The simulation uses 25 dB/km as a chosen worst-case attenuation value for severe fog conditions [2]. This value was explicitly selected as a simulation parameter to represent highly lossy channel conditions under adverse environmental factors such as fog, not as a measured or established real-world limit."
+    }
+  },
+  "by_model": {
+    "qwen2.5:3b": {
+      "elapsed_seconds": 332.9748564579986,
+      "records": {
+        "q001": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 4247.634749999634,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 31555,
+              "char_end": 32775
+            },
+            {
+              "index": 2,
+              "paper_id": "6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions",
+              "doi": "10.1109/ojcoms.2020.3010270",
+              "char_start": 48968,
+              "char_end": 49802
+            }
+          ],
+          "text": "[1] and [2] do not cover the question."
+        },
+        "q002": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 7048.394249999546,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 135562,
+              "char_end": 137166
+            }
+          ],
+          "text": "The services of 6G related to omnipresent, extremely high-speed and ultra-low-latency connectivity are:\n\n- **Massive MTC (mMTC) and massive URLLC (mURLLC) applications**: [4]\n- **Ultrahigh-speed-with-low-latency communications (uHSLLC)**: [4]\n- **Ultrahigh data density (uHDD)**: [4]\n- **Tactile Internet**: [4]\n- **Machine-to-machine and human-to-machine with real-time interactive applications**: [4]\n- **Internet of smart things (IoST) applications**: [4]\n\nThese services are expected to be supported by 6G networks, which are expected to achieve extremely high data rates, ultra-low latency, and ultra-reliable communications."
+        },
+        "q003": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3482.2936250002385,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions",
+              "doi": "10.1109/ojcoms.2020.3010270",
+              "char_start": 0,
+              "char_end": 1529
+            },
+            {
+              "index": 2,
+              "paper_id": "6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions",
+              "doi": "10.1109/ojcoms.2020.3010270",
+              "char_start": 1531,
+              "char_end": 2571
+            }
+          ],
+          "text": "[1] and [2] do not cover the question."
+        },
+        "q004": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3606.9506669991824,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q005": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2991.182249999838,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about the change in NLoS components in a UM CIR compared to the reference model."
+        },
+        "q006": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3163.654124999084,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-12-05036",
+              "doi": "10.3390/electronics12245036",
+              "char_start": 7071,
+              "char_end": 8606
+            },
+            {
+              "index": 5,
+              "paper_id": "electronics-12-05036",
+              "doi": "10.3390/electronics12245036",
+              "char_start": 17125,
+              "char_end": 18383
+            }
+          ],
+          "text": "[1] - [5] do not provide specific information about the effect of path blockage in subterranean applications. They focus on indoor applications and human blockage in VLC systems."
+        },
+        "q007": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3173.417083999084,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 32818,
+              "char_end": 33435
+            },
+            {
+              "index": 2,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 57706,
+              "char_end": 58870
+            },
+            {
+              "index": 3,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 63239,
+              "char_end": 64272
+            },
+            {
+              "index": 4,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 56695,
+              "char_end": 57704
+            },
+            {
+              "index": 5,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 62221,
+              "char_end": 63237
+            }
+          ],
+          "text": "[1] and [2] and [3] and [4] and [5] do not cover the question."
+        },
+        "q008": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2118.0872499990073,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q009": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 3005.7670420010254,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 40461,
+              "char_end": 41252
+            },
+            {
+              "index": 2,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 16420,
+              "char_end": 16936
+            }
+          ],
+          "text": "The benefit of using PSO in localization problems is that it can achieve more accurate localization compared to other methods. This is evident from [1]. Additionally, PSO can enhance the convergence speed of the algorithm, ensuring a faster and more accurate determination of the target location, especially advantageous in time-sensitive medical scenarios as mentioned in [2]."
+        },
+        "q010": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 4635.183374999542,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-14-08912",
+              "doi": "10.3390/app14198912",
+              "char_start": 29288,
+              "char_end": 30460
+            },
+            {
+              "index": 3,
+              "paper_id": "optimization-of-a-color-based-spatial-modulation-scheme-for-vlc-under-illuminance-and-sinr-constraints",
+              "doi": "10.1109/access.2022.3221747",
+              "char_start": 2281,
+              "char_end": 3786
+            }
+          ],
+          "text": "[1] and [3] discuss the use of different wavelengths of light, typically red, green, and blue (RGB) LEDs, for transmitting multiple bits of information simultaneously by altering the color combinations in medical scenarios. Therefore, we can use any light color in medical scenarios as long as it is within the visible spectrum spectrum (380-750 nm) and can be modulated to transmit data."
+        },
+        "q011": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 4048.7130000001343,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 7316,
+              "char_end": 8151
+            },
+            {
+              "index": 2,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 5977,
+              "char_end": 7314
+            },
+            {
+              "index": 3,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 8153,
+              "char_end": 10481
+            },
+            {
+              "index": 4,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 0,
+              "char_end": 2200
+            },
+            {
+              "index": 5,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 3492,
+              "char_end": 4613
+            }
+          ],
+          "text": "The use of RF-based technologies is undesirable for localization in medical environments due to several challenges. These include interference with medical devices, inaccuracies in results, and high implementation costs. [1] [2] [3] [4] [5]"
+        },
+        "q012": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2260.455749999892,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of why most PSO implementations fail."
+        },
+        "q013": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 6517.948082999283,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 31284,
+              "char_end": 32138
+            },
+            {
+              "index": 2,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 52827,
+              "char_end": 54212
+            }
+          ],
+          "text": "[1] and [2] compare MRC and SBC in terms of convergence time and performance. MRC is shown to achieve faster convergence and higher received power compared to SBC. Specifically, MRC-based configurations like the pyramidal ADR achieve convergence in approximately 4.23 seconds, whereas SBC-based configurations like the hemispherical ADR require around 6.64 seconds. In terms of received power, MRC-based configurations like the pyramidal ADR achieve maximum powers of 5.49 dB and 6.37 dB, respectively, with minimum power levels of -20.14 dB and -19.59 dB. SBC-based configurations like the hemispherical ADR achieve lower maximum powers (around 0.81 dB) and higher minimum power losses (-23.40 dB)."
+        },
+        "q014": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3830.469708000237,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of whether it is possible to automatically pick the best spot on a light beam to place a reflecting panel. The sources discuss various aspects of VLC systems, including system parameters, reflective surfaces, and channel models, but do not address the automatic optimization of reflective panel placement."
+        },
+        "q015": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3391.547958000956,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 44930,
+              "char_end": 46263
+            },
+            {
+              "index": 3,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 58898,
+              "char_end": 59509
+            }
+          ],
+          "text": "[1] and [3] provide information about the improvement in SNR due to IRS position optimization, but they do not directly compare the SNR improvement between optimized and fixed IRS positions."
+        },
+        "q016": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2760.3108329985844,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of which receiver shape performs better under total shadowing conditions."
+        },
+        "q017": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3174.7870830004103,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q018": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 4014.493708000373,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 6788,
+              "char_end": 7444
+            },
+            {
+              "index": 4,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 46352,
+              "char_end": 47149
+            },
+            {
+              "index": 5,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 47151,
+              "char_end": 48187
+            }
+          ],
+          "text": "[2] [4] [5] The sources indicate that treating the roughness of the wall as a random variable does change the received power. In [2], it is stated that adding a probabilistic element to account for the variability in reflections introduces a loss in the received power. [4] and [5] further elaborate on this, showing how different statistical distributions (uniform, normal, exponential, and gamma) influence the received power and channel gain, with gamma and exponential distributions leading to greater signal attenuation and thus greater losses in received power."
+        },
+        "q019": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3904.8782090012537,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about how much the reflection coefficient changes between coal, shale, and limestone."
+        },
+        "q020": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2486.0489170005167,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q021": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 3093.021291000696,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 14671,
+              "char_end": 15647
+            },
+            {
+              "index": 2,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 16408,
+              "char_end": 17384
+            }
+          ],
+          "text": "[1] [2] The IEEE 802.15.7m standard covers NIR (700-1000 nm wavelengths), UV (100-400 nm wavelengths) and visible light (400-700 nm wavelengths) bands."
+        },
+        "q022": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 4712.592542000493,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 7147,
+              "char_end": 8090
+            },
+            {
+              "index": 3,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 6599,
+              "char_end": 7847
+            }
+          ],
+          "text": "The data rate is low when a phone camera is used as the receiver because the camera's frame rate is typically in the range of 30 to 60 frames per second (fps) at a common resolution of 1920 \u00d7 1080 pixels. This is stated in [1] and [3]. Additionally, the use of high-speed cameras of 1000 FPS is possible to overcome this problem, as mentioned in [3]. However, the data rate is still very limited due to the fact that the sampling rate of commercially widely available cameras is not high, as explained in [3]."
+        },
+        "q023": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2557.873957999618,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about the main challenges of using a camera instead of a photodiode."
+        },
+        "q024": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3326.0172080008488,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q025": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 6207.880334000947,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 62566,
+              "char_end": 63286
+            },
+            {
+              "index": 2,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 60615,
+              "char_end": 61229
+            },
+            {
+              "index": 4,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 0,
+              "char_end": 1739
+            }
+          ],
+          "text": "The IEEE 802.15.7 color calibration algorithm fails with a wavelength-dependent CSK channel because the color distortion induced by the wavelength-dependent channel model cannot be represented as a linear transformation, as explained in [2]. The color calibration algorithm defined by the IEEE 802.15.7 standard cannot revert effectively the non-linear color distortion caused by the wavelength-dependent channel, leading to an increase in the Bit Error Rate (BER). [1] and [4] also support this by stating that the color distortion in wavelength-dependent CSK-based UM-VLC systems is non-linear and thus, the color calibration algorithm defined in the IEEE 802.15.7 standard cannot revert it as effectively."
+        },
+        "q026": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3370.8512080011133,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 17385,
+              "char_end": 18121
+            },
+            {
+              "index": 3,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 49390,
+              "char_end": 50520
+            }
+          ],
+          "text": "[1] and [3] discuss the impact of dust particles on the attenuation of the optical link, but do not specifically address how the color of the light affects this attenuation."
+        },
+        "q027": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 4427.059999999983,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 0,
+              "char_end": 1739
+            },
+            {
+              "index": 4,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 5885,
+              "char_end": 6669
+            }
+          ],
+          "text": "[1] and [4] discuss the modeling of scattering and shadowing in underground environments, but do not provide specific information about how the BER changes when wavelength dependency is considered in the channel model."
+        },
+        "q028": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3491.709042000366,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 62566,
+              "char_end": 63286
+            },
+            {
+              "index": 2,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 60615,
+              "char_end": 61229
+            }
+          ],
+          "text": "[1] and [2] discuss the performance of CSK-based UM-VLC systems with and without wavelength dependency, but do not directly address whether the color distortion is linear or not."
+        },
+        "q029": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 2574.1077499988023,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "energies-15-02814",
+              "doi": "10.3390/en15082814",
+              "char_start": 4157,
+              "char_end": 4536
+            }
+          ],
+          "text": "[4] The role of the infrared sensor in the SLIPT receiver is to detect the movements of unmanned aerial vehicles (UAVs)."
+        },
+        "q030": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 5498.8432500013005,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 48340,
+              "char_end": 49927
+            },
+            {
+              "index": 2,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 49929,
+              "char_end": 50911
+            }
+          ],
+          "text": "The same component that charges a device can also be used to receive data. This can be inferred from [1] and [2], which discuss the decoupling of energy harvesting and data reception using dedicated capacitive and inductive branches. The operating point of the device, which is influenced by the equivalent circuit components such as resistances and capacitances, can affect both the communication branch and the energy harvesting branch. Therefore, the communication branch does not affect the energy harvesting performance but can influence the operating voltage of the solar cell, which in turn affects both the recovered power and the data reception."
+        },
+        "q031": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3422.144041000138,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 50913,
+              "char_end": 51688
+            },
+            {
+              "index": 2,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 33133,
+              "char_end": 34782
+            }
+          ],
+          "text": "[1] and [2] discuss the use of solar panels for VLC in indoor scenarios, but do not provide information on the suitability of large solar panels for IoT nodes."
+        },
+        "q032": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3207.793166000556,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of what limits the wide-scale deployment of IoT devices powered by light."
+        },
+        "q033": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 6492.856167000355,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "applsci-14-08912",
+              "doi": "10.3390/app14198912",
+              "char_start": 53563,
+              "char_end": 54066
+            },
+            {
+              "index": 5,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 39123,
+              "char_end": 41028
+            }
+          ],
+          "text": "mmWave and cognitive radio address spectrum scarcity by leveraging the vast bandwidth available in mmWave frequencies, which can potentially be exploited to achieve peak data rates of multiple gigabit per second (Gbit/s) for indoor and fixed outdoor wireless systems. Cognitive radio techniques can also be integrated into VLC systems to optimize spectrum usage dynamically by sensing the environment and adapting transmission parameters based on real-time spectrum availability. This can help minimize interference and maximize spectrum utilization. Cognitive radio can sense the environment and adapt its transmission parameters based on real-time spectrum availability, which can help minimize interference and maximize spectrum utilization. By applying cognitive radio principles to VLC, healthcare networks could become more flexible and resilient, especially in environments where bandwidth demands fluctuate throughout the day. [4] [5]"
+        },
+        "q034": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 5309.000582999943,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-21-00861-v2",
+              "doi": "10.3390/s21030861",
+              "char_start": 3046,
+              "char_end": 4279
+            }
+          ],
+          "text": "The need for a clear line of sight holds back light-based links because the propagation and directionality characteristics of light require a direct path between the transmitter and receiver. This is evident from [1] which states that \"Since light does not go through solid elements, it also confers an inherent security umbrella upon VLC, which is a very appreciated property nowadays, where security and safety awareness are growing up in our society. However, the obstructions in the direct link between transmitter and receiver for VLC are critical for communication and it is one of its main disadvantages, which is known as the line-of-sight (LoS) link blockage or shadowing.\""
+        },
+        "q035": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 2426.067917000182,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 34148,
+              "char_end": 34650
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 33262,
+              "char_end": 34146
+            }
+          ],
+          "text": "The network topologies used to combine RF and VLC links are symmetric with interference, symmetric without interference, asymmetric, dual transmission, separate transmission, and hybrid transmission. [4][5]"
+        },
+        "q036": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 1937.4334999993152,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-12-00649",
+              "doi": "10.3390/photonics12070649",
+              "char_start": 3294,
+              "char_end": 4085
+            },
+            {
+              "index": 2,
+              "paper_id": "photonics-12-00649",
+              "doi": "10.3390/photonics12070649",
+              "char_start": 2636,
+              "char_end": 3292
+            }
+          ],
+          "text": "[1] [2]"
+        },
+        "q037": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 3665.16133299956,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "photonics-10-01117",
+              "doi": "10.3390/photonics10101117",
+              "char_start": 8955,
+              "char_end": 9449
+            }
+          ],
+          "text": "[2] We obtain mathematical expressions of the LoS and Non-LoS channel components, including the effect of the reflection of the optical signal in the IRS and obstacles and obstacles that can cause shadowing."
+        },
+        "q038": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 3125.795083000412,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q039": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2709.9519579987827,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about how much an IRS improves the BER of an indoor VLC link."
+        },
+        "q040": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2474.369874998956,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of whether a partially blocked LoS needs the same treatment as a fully blocked one."
+        },
+        "q041": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 4096.4233329996205,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 0,
+              "char_end": 1371
+            },
+            {
+              "index": 4,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 26499,
+              "char_end": 27885
+            },
+            {
+              "index": 5,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 33534,
+              "char_end": 35336
+            }
+          ],
+          "text": "[1] - [4] and [5] do not cover the question about how much energy can be harvested with a non-Lambertian transmitter."
+        },
+        "q042": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 5313.355124999362,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 28951,
+              "char_end": 30503
+            },
+            {
+              "index": 2,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 24367,
+              "char_end": 26037
+            }
+          ],
+          "text": "[1] and [2] discuss the effect of receiver aperture size on the performance of SLIPT, but do not provide information about the effect of the shape of the emitted beam on the harvested energy amount."
+        },
+        "q043": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 2440.5217920011637,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q044": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2103.4832919995097,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q045": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 2731.718291001016,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 6877,
+              "char_end": 7202
+            }
+          ],
+          "text": "[3] Liquid crystals are surfaces that operate by applying electrical stimulation to reorient the LC molecules, thus altering the refractive index and permittivity of the material. This modulation enables dynamic control of both the phase and amplitude of the transmitted or reflected signals."
+        },
+        "q046": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2276.685584000006,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q047": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2692.719291000685,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question and do not provide a clear answer regarding which RIS architecture is the most promising for VLC."
+        },
+        "q048": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3533.6405420002848,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 108649,
+              "char_end": 109126
+            },
+            {
+              "index": 5,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 107879,
+              "char_end": 108647
+            }
+          ],
+          "text": "[1] - [5] do not cover the question. These passages discuss the challenges and limitations of RIS-VLC systems but do not specifically address what prevents their implementation in practice."
+        },
+        "q049": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 5352.113040999029,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 0,
+              "char_end": 630
+            },
+            {
+              "index": 4,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 25048,
+              "char_end": 25920
+            }
+          ],
+          "text": "[1] [4]\n\nSingle-photon receivers are interesting for underwater links because they can provide high detection, high accuracy, and low noise measurements, which are crucial for underwater optical wireless communication (UOWC) systems. The use of single-photon avalanche diodes (SPADs) in underwater optical wireless communication systems can overcome the limitations of traditional photodiodes, such as the need for a trans-conductance amplifier. This is particularly relevant in underwater environments where the performance of the communication system is limited by oceanic turbulence and the need for robust and reliable detection mechanisms. The use of SPADs in underwater optical wireless communication systems can help in developing more resilient and accurate communication systems, especially in challenging underwater environments."
+        },
+        "q050": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2923.2155829995463,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about why blue and green wavelengths travel further in seawater."
+        },
+        "q051": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2659.450499999366,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of whether optical communication is better than acoustic communication underwater. They discuss the potential of underwater optical wireless communication (UOWC) and its comparison to acoustic communication, but do not provide a direct comparison of their relative merits."
+        },
+        "q052": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2123.918582999977,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q053": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2971.176666998872,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-12-05036",
+              "doi": "10.3390/electronics12245036",
+              "char_start": 21658,
+              "char_end": 22392
+            },
+            {
+              "index": 5,
+              "paper_id": "electronics-12-05036",
+              "doi": "10.3390/electronics12245036",
+              "char_start": 15348,
+              "char_end": 16797
+            }
+          ],
+          "text": "[1] - [5] do not provide specific information about the optical path loss at the center of a corridor."
+        },
+        "q054": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2861.8705829994724,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about whether the furniture in a room increases the loss of an optical link."
+        },
+        "q055": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3030.9739580006863,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question and do not contain information about the placement of an OLED panel on the outer or inner wall of a shop."
+        },
+        "q056": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3654.9595840006077,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of how the RMS delay spread and the optical path loss of an OLED link are related."
+        },
+        "q057": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 7420.3935410005215,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "A hemispherical dust particle distribution model is a model that represents the distribution of dust particles in a 3D space, specifically within a hemispherical region. This model is used to more accurately represent the hostile underground mining (UM) environment where dust particles are suspended in the air. The model is derived based on the features, behavior, and distribution of dust particles in UM tunnels. It is a random and independently distributed scatterer model located around the helmet of the mining worker, who is the central point of the hemispheric area. The model is presented as a random and independently distributed scatterer distribution within a hemispheric 3D region, which is spatially located around the PD (Photo Diode) located at the center of the hemispheric area. The model is used to analyze the effect on the complete UM-VLC channel model of the number of dust particles in the hemispherical distribution, as shown in Figure 3 of the sources."
+        },
+        "q058": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 5506.61370799935,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 17385,
+              "char_end": 18121
+            },
+            {
+              "index": 2,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 5796,
+              "char_end": 6968
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 22185,
+              "char_end": 23242
+            }
+          ],
+          "text": "When there is more dust suspended in the air, the link's performance is significantly affected due to the scattering and absorption of light by dust particles. The dust particles can scatter the light beam, causing the intensity of the transmitted light to decrease. This phenomenon is more pronounced in underground mining environments (UM) compared to indoor environments like offices, homes, or hospitals. The dust particles in UM environments are spherical and uniformly distributed, behaving as reflective isotropic scatterers. The intensity of the incident light and the intensity of the transmitted light can be described by an attenuation relationship, which is influenced by the concentration and distribution of dust particles. Therefore, the presence of more dust particles leads to a more severe attenuation of the optical link, impacting the performance of the VLC system. [1][2][3]"
+        },
+        "q059": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 4809.707124999477,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of whether the dust distribution model changes the CIR in underground mining. The sources discuss various aspects of the VLC channel model for underground mining environments, including the effects of scattering and shadowing, but do not specifically address how the dust distribution model influences the CIR."
+        },
+        "q060": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 7889.283499998783,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 38244,
+              "char_end": 39522
+            }
+          ],
+          "text": "The shape of the dust distribution matters because different shapes can lead to different scattering behaviors. In the context of the provided sources, the shape of the dust distribution is described in relation to the 3D dust particles distribution model. The sources indicate that the shape of the dust distribution can affect the performance of the VLC system, as seen in the Bit Error Rate (BER) curves and the Channel Impulse Response (CIR) analysis. For instance, Figure 8 in [3] shows BER curves for different values of N (number of dust particles) under different dust particle distributions (hemispherical vs. reference). The best performance is observed with a hemispherical distribution, which suggests that the shape of the dust distribution influences the system's performance. Additionally, the sources mention that the scattering component is not the only factor affecting the CIR, and the shape of the dust distribution can influence the magnitude and time dispersion of the CIR, as seen in Figure 3b of [3]. Therefore, the shape of the dust distribution is important for the performance of the VLC system."
+        },
+        "q061": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 9986.655874999997,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 3061,
+              "char_end": 4589
+            },
+            {
+              "index": 2,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 44052,
+              "char_end": 44571
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 0,
+              "char_end": 1032
+            },
+            {
+              "index": 4,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 178811,
+              "char_end": 181028
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 20400,
+              "char_end": 22277
+            }
+          ],
+          "text": "[1] Deep learning is used for channel estimation in IRS-based communication systems. Specifically, in [1], a DL-based channel estimation for an IRS-aided system was proposed, where the authors used a single IRS system and considered MISO-OFDM. They proposed a single IRS system while considering MISO-OFDM, indicating the use of deep learning for channel estimation.\n\n[2] In [2], deep neural channel estimation for optical IRS-assisted (mirror array) systems is proposed. The channel estimation is based on deep learning methods, suggesting the use of deep learning for channel estimation in optical IRS systems.\n\n[3] In [3], deep learning is discussed as a potential technique for the revolution of communication systems, including in IRS-enhanced communication. DL-based research has been conducted for estimating CSI, especially for DL-based IRS communication systems, indicating the use of deep learning for channel estimation in IRS systems.\n\n[4] In [4], deep learning is mentioned as a powerful technique for various applications including channel estimation. It can be used for blind detection in MIMO communications systems with low-resolution quantization, indicating the use of deep learning for channel estimation in complex scenarios.\n\n[5] In [5], DL is used for enhancing the key generation rate (KGR) in physical layer key generation by using a single antenna UE time division duplexing mode system, and for estimating compressive CSI for IRS-assisted mmWave systems with a low training overhead, indicating the use of deep learning for channel estimation in these systems."
+        },
+        "q062": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 3928.238374999637,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-10-01117",
+              "doi": "10.3390/photonics10101117",
+              "char_start": 5312,
+              "char_end": 6398
+            },
+            {
+              "index": 3,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 24492,
+              "char_end": 26636
+            }
+          ],
+          "text": "The property of a programmable panel that is changed to steer the waves is the **amplitude and phase shifts**. This can be inferred from [1] and [3], where it is mentioned that the reflective metasurface can independently reflect the incident signals toward the desired users by digitally controlling their adjustable amplitude and phase shifts."
+        },
+        "q063": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 6950.659624999389,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 19122,
+              "char_end": 20398
+            }
+          ],
+          "text": "[1] Machine Learning for Intelligent-Reflecting-Surface-Based Wireless Communication towards 6G: A Review (2022) -- Machine Learning for IRS-Assisted Communication Systems\nMachine Learning (ML) is a wide multidisciplinary area that draws concepts from various domains, including information theory, AI, statistics, optimal control, and optimization theory. The deployment in different field applications has touched nearly every scientific subject and has had a significant effect on research and society. Some recent application fields of ML are autonomous systems, suggestion engines, informatics, data mining, and recognition systems. The ML technology consists of two phases: training and decision making. In the training phase, a dataset is used to train and understand the model of the system. During the decision-making process, the trained model is employed to derive the projected output for every new input given to the system. The taxonomy of ML involves various subfields, such as RL, UL, and SL."
+        },
+        "q064": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2969.1679579991614,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 4591,
+              "char_end": 6587
+            },
+            {
+              "index": 2,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 2686,
+              "char_end": 3432
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 5447,
+              "char_end": 7156
+            },
+            {
+              "index": 4,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 135592,
+              "char_end": 135910
+            },
+            {
+              "index": 5,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 111000,
+              "char_end": 111427
+            }
+          ],
+          "text": "[1] and [2] and [3] and [4] and [5] do not cover the question directly."
+        },
+        "q065": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 2611.404417000813,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question."
+        },
+        "q066": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 3003.1090840002435,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 4334,
+              "char_end": 5040
+            }
+          ],
+          "text": "[1] Hybrid VLC/RF networks are presented as a complementary technology capable of realizing cooperation between RF and VLC networks without interfering with each other. They are able to significantly increase the system data rate and achieve better load balancing by distributing the data load between the two networks."
+        },
+        "q067": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 5309.55583299874,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 35947,
+              "char_end": 36706
+            }
+          ],
+          "text": "[1] Hybrid VLC/RF networks in outdoor scenarios with harsh conditions become very complex and dynamic due to factors such as sunlight, rain, dust, and wind. These conditions cause amplitude and phase fluctuations in the VLC optical beam, leading to higher optical losses compared to the RF network. The level of loss in the VLC signal is higher due to the sensitivity of the VLC signal to atmospheric conditions like sun, rain, and fog. The authors mention several phenomena that cause signal loss in both the VLC and RF networks, including scattering, absorption, nonalignment, and turbulence."
+        },
+        "q068": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2895.494709000559,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question directly. They discuss various aspects of hybrid VLC/RF networks but do not provide specific information about whether load balancing in such networks conflicts with lighting requirements."
+        },
+        "q069": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 4042.0919580010377,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about the power conversion efficiency of emerging PV technologies reached indoors."
+        },
+        "q070": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 11470.888417001333,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 33133,
+              "char_end": 34782
+            },
+            {
+              "index": 2,
+              "paper_id": "energies-15-02814",
+              "doi": "10.3390/en15082814",
+              "char_start": 1575,
+              "char_end": 2939
+            },
+            {
+              "index": 3,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 45173,
+              "char_end": 46394
+            },
+            {
+              "index": 4,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 21696,
+              "char_end": 21933
+            }
+          ],
+          "text": "The speed at which a solar cell can read data from a flickering light is influenced by its ability to capture and convert the light energy into electrical energy, which is then used to power the data reception process. In the context of the provided sources, the key factors that make a solar cell fast enough to read data from a flickering light include its efficiency in converting light to electricity, its ability to operate under varying light conditions, and its ability to adapt to the frequency response of the light source.\n\n[1] and [3] discuss the use of solar cells in VLC applications. In [1], the authors mention that the first practical IoT case study used a commercial Si solar panel to send data at a 4.8 kbit/s rate over a 1 m distance. The solar cell was able to generate enough power to supply a microprocessor responsible for sending the feedback signal using another white LED. This indicates that the solar cell's ability to convert light into electricity is crucial for powering the data reception process.\n\n[2] discusses the use of solar cells for data reception in VLC applications. The authors report achieving data rates up to 11.84 Mbps using a Si solar cell. This suggests that the solar cell's efficiency in converting light to electricity is a key factor in its ability to read data from a flickering light.\n\n[4] mentions that a solar cell, which is a semiconductor device used in the transmitter/receiver of a VLC system, can support very high data rates. This implies that the solar cell's ability to convert light into electrical energy is essential for achieving high data rates in VLC systems.\n\nIn summary, the solar cell's ability to convert light into electrical energy, its efficiency in doing so, and its ability to adapt to varying light conditions are the key factors that make a solar cell fast enough to read data from a flickering light."
+        },
+        "q071": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 5064.919375001409,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 22854,
+              "char_end": 23957
+            },
+            {
+              "index": 2,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 0,
+              "char_end": 1444
+            }
+          ],
+          "text": "The emerging solar cells that can receive data while they harvest energy are the third generation of PV cells, which have shown amazing capabilities for indoor energy harvesting. These devices are made of PV-based architecture, mainly fabricated for energy harvesting purposes, but were negatively (or zero) biased, denying their power collection capabilities. However, the dynamic performance of these PV devices enabled them to be used as data receivers in optical wireless communication (OWC) scenarios, calling forth an innovative system able to simultaneously harvest energy and receive communication data with a single PV device. [1] [2]"
+        },
+        "q072": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3654.535042000134,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 0,
+              "char_end": 1444
+            },
+            {
+              "index": 5,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 56269,
+              "char_end": 57554
+            }
+          ],
+          "text": "[1] - [5] do not cover the question about what limits indoor photovoltaic harvesting from moving out of the laboratory."
+        },
+        "q073": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3608.1610829987767,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of what phase gradient is needed to focus light with a metasurface."
+        },
+        "q074": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 4276.911333001408,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 46777,
+              "char_end": 48406
+            },
+            {
+              "index": 2,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 48611,
+              "char_end": 50351
+            },
+            {
+              "index": 3,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 24899,
+              "char_end": 25938
+            },
+            {
+              "index": 4,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 0,
+              "char_end": 1185
+            },
+            {
+              "index": 5,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 42906,
+              "char_end": 44377
+            }
+          ],
+          "text": "[1] [2] [3] [4] [5] do not cover the question."
+        },
+        "q075": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3705.5488750011136,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-10-01117",
+              "doi": "10.3390/photonics10101117",
+              "char_start": 11138,
+              "char_end": 11697
+            },
+            {
+              "index": 2,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 0,
+              "char_end": 1185
+            }
+          ],
+          "text": "[1] and [2] discuss the use of metasurfaces and mirror arrays for focusing light in VLC systems, but do not compare their performance directly. They provide analytical models and simulations for both configurations, but do not present comparative results."
+        },
+        "q076": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 10903.04662500057,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 0,
+              "char_end": 1185
+            },
+            {
+              "index": 2,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 46777,
+              "char_end": 48406
+            },
+            {
+              "index": 3,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 44894,
+              "char_end": 45789
+            },
+            {
+              "index": 4,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 16739,
+              "char_end": 17165
+            },
+            {
+              "index": 5,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 31055,
+              "char_end": 31897
+            }
+          ],
+          "text": "To compare two different reflector technologies for a fixed layout, one would need to analyze the specific characteristics and performance metrics of each reflector type. Based on the information provided in the sources, the two types of intelligent reflecting systems discussed are metasurfaces and mirror arrays. \n\n[1] and [2] provide simulation results for both types of reflectors. For instance, [2] discusses the impact of the detector position on the received power from both types of reflectors, showing that the metasurface reflector has a unimodal trend in received power, while the mirror array reflector shows an asymptotic decreasing trend. \n\n[3] further elaborates on the relative performance of the two reflectors, noting that the mirror array reflector outperforms the metasurface reflector in terms of the projections of the reflectors in the detector plane. \n\n[4] and [5] provide details on the construction and performance of the mirror array reflector, including the choice of materials and the assumption of a small detector regime. \n\nTherefore, to compare the two reflector technologies, one would need to analyze the simulation results from [2] and [3], and the construction details from [4] and [5]. The specific comparison would depend on the performance metrics and layout of the fixed system. [1] and [2] provide the necessary simulation results, while [4] and [5] offer insights into the construction and performance of the mirror array reflector. [3] also contributes by comparing the relative performance of the two reflectors. \n\nNO_ANSWER_IN_CONTEXT The provided sources do not cover the question of how to compare two different reflector technologies for a fixed layout. They provide information on the performance and construction of the reflectors but do not offer a direct method for comparison."
+        },
+        "n001": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2983.691583000109,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of whether the earth's electromagnetic field impacts optical communications."
+        },
+        "n002": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2728.701457999705,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about the effect of LED aging on the long-term reliability of a VLC link."
+        },
+        "n003": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 3157.370250000895,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 90731,
+              "char_end": 91574
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 2037,
+              "char_end": 3994
+            }
+          ],
+          "text": "[1] and [3] do not cover the question about which physical layer security schemes are recommended to encrypt a VLC link."
+        },
+        "n004": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2955.899208000119,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 7849,
+              "char_end": 8672
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 2037,
+              "char_end": 3994
+            }
+          ],
+          "text": "[1] - [5] do not cover the question."
+        },
+        "n005": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 2749.1906249997555,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about how much temperature drift shifts the emission wavelength of an LED."
+        },
+        "n006": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 4673.594416000924,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 27195,
+              "char_end": 27785
+            },
+            {
+              "index": 2,
+              "paper_id": "applsci-14-08912",
+              "doi": "10.3390/app14198912",
+              "char_start": 36504,
+              "char_end": 37030
+            },
+            {
+              "index": 3,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 123621,
+              "char_end": 124070
+            },
+            {
+              "index": 4,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 41018,
+              "char_end": 41525
+            },
+            {
+              "index": 5,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 57721,
+              "char_end": 59216
+            }
+          ],
+          "text": "[1] [2] [3] [4] [5] The sources indicate that flicker mitigation is a significant challenge in VLC systems, especially in environments where both lighting and data communication are required. Flicker mitigation is addressed through various techniques such as advanced coding, dimming control, and using high-speed cameras. The flicker-fusion threshold for human eyes is around 100 Hz, and VLC systems must ensure that flicker does not occur below this threshold to prevent discomfort and health issues. Therefore, there are indeed flicker regulations for VLC to protect people with photosensitive epilepsy."
+        }
+      }
+    },
+    "qwen3:4b": {
+      "elapsed_seconds": 6281.709968791001,
+      "records": {
+        "q001": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 35299.278124999546,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions",
+              "doi": "10.1109/ojcoms.2020.3010270",
+              "char_start": 48968,
+              "char_end": 49802
+            }
+          ],
+          "text": "Holographic beamforming differs from MIMO systems because it uses software-defined antennas [2]."
+        },
+        "q002": {
+          "error": "model 'qwen3:4b' at http://localhost:11434/v1/chat/completions did not respond after 3 attempt(s): timed out",
+          "abstained": null,
+          "generation_ms": null,
+          "invalid_citations": [],
+          "citations": [],
+          "text": null
+        },
+        "q003": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 95492.97537499842,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions",
+              "doi": "10.1109/ojcoms.2020.3010270",
+              "char_start": 0,
+              "char_end": 1529
+            },
+            {
+              "index": 3,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 172548,
+              "char_end": 174827
+            },
+            {
+              "index": 4,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 175550,
+              "char_end": 177928
+            }
+          ],
+          "text": "AI is expected to be embedded across the whole network architecture of 6G (targeted for 2027\u20132030) through integration into optimization, planning, and design processes, enabling super-intelligent and automated operations at both the edge and core layers. This includes specific functions such as self-learning, self-configuration, dynamic resource allocation, intelligent decision-making, predictive analytics, smart routing, automated maintenance, and network operations management [3][4]. \n\n**Citation notes**:  \n- [3] refers to the section \"VII. REALIZING INTELLIGENCE\" in *6G Wireless Communications Networks: A Comprehensive Survey (2021)*, which details the required capabilities for 6G networks.  \n- [4] refers to the section \"1) KEY POINTS OF USING ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING TECHNIQUES IN THE WIRELESS SYSTEMS\" in the same survey, which explicitly identifies AI/ML as the core technique for these functions.  \n- The time frame (2027\u20132030) is confirmed by source [1] (which states 6G implementation is targeted for this period).  \n- All described functions are expected integrations (not measured values), as per the survey's forward-looking context."
+        },
+        "q004": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 94414.98412500005,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 48742,
+              "char_end": 50794
+            },
+            {
+              "index": 2,
+              "paper_id": "sensors-21-00861-v2",
+              "doi": "10.3390/s21030861",
+              "char_start": 12213,
+              "char_end": 13059
+            },
+            {
+              "index": 5,
+              "paper_id": "6g-wireless-communication-systems-applications-requirements-technologies-challenges-and-research-directions",
+              "doi": "10.1109/ojcoms.2020.3010270",
+              "char_start": 34618,
+              "char_end": 36466
+            }
+          ],
+          "text": "Based on the provided sources, the following alternatives to LEDs are explicitly mentioned for use in OWC (Optical Wireless Communication) systems, particularly in the context of VLC (Visible Light Communication), which is a subset of OWC:\n\n1. **Laser diodes (LDs)**: Source [1] states that \"VLC uses photodiode (PD) or laser diodes (LDs)\" (though this phrasing appears to contain a potential error, as photodiodes are typically receivers, not transmitters; in standard VLC terminology, laser diodes are used as an alternative to LEDs for transmitters). This indicates that laser diodes are recognized as an alternative technology for transmitters in VLC systems.\n\n2. **Micro-LEDs (\u03bcLEDs)**: \n   - Source [2] explicitly states that \"\u03bcLEDs are currently an alternative technology for VLC transmitters subject to providing lower illumination than phosphor LEDs.\" This directly identifies micro-LEDs as an alternative to traditional LEDs for VLC transmitters.\n   - Source [5] further supports this by noting that \"microLED technologies\" are expected to become mature and cost-effective for OWC applications (specifically in 6G contexts), positioning them as an alternative to conventional LEDs.\n\nNo other alternatives to LEDs are mentioned in the sources for OWC systems. Note that phosphor LEDs (a type of LED) and RGB integrated circuits are discussed in source [2] as methods for generating white light in VLC, but these are still LED-based technologies and not true alternatives to LEDs themselves.\n\n**Final Answer**:  \nAlternatives for LEDs in OWC include **laser diodes (LDs) [1]** and **micro-LEDs (\u03bcLEDs) [2][5]**."
+        },
+        "q005": {
+          "error": "model 'qwen3:4b' at http://localhost:11434/v1/chat/completions did not respond after 3 attempt(s): timed out",
+          "abstained": null,
+          "generation_ms": null,
+          "invalid_citations": [],
+          "citations": [],
+          "text": null
+        },
+        "q006": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 27021.976084000926,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources only discuss indoor visible light communication (VLC) applications and do not cover subterranean environments or applications."
+        },
+        "q007": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 52365.84112499986,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 57706,
+              "char_end": 58870
+            },
+            {
+              "index": 3,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 63239,
+              "char_end": 64272
+            }
+          ],
+          "text": "Yes, the CIR in underground mining is greatly affected by the irregular shape of walls [2][3]."
+        },
+        "q008": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 58191.71875000029,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 51757,
+              "char_end": 52527
+            },
+            {
+              "index": 5,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 62221,
+              "char_end": 63237
+            }
+          ],
+          "text": "Channel Impulse Response (CIR) [3][5]"
+        },
+        "q009": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 53042.93524999957,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 40461,
+              "char_end": 41252
+            },
+            {
+              "index": 2,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 16420,
+              "char_end": 16936
+            },
+            {
+              "index": 5,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 41840,
+              "char_end": 42449
+            }
+          ],
+          "text": "The benefit of using PSO in localization problems is improved localization accuracy with lower average error compared to other methods [1]. PSO also enhances convergence speed, ensuring faster and more accurate determination of the target location, particularly advantageous in time-sensitive medical scenarios [2]. Additionally, PSO mitigates premature convergence to local optima through systematic particle initialization, resulting in better overall performance [5]."
+        },
+        "q010": {
+          "error": "model 'qwen3:4b' at http://localhost:11434/v1/chat/completions did not respond after 3 attempt(s): timed out",
+          "abstained": null,
+          "generation_ms": null,
+          "invalid_citations": [],
+          "citations": [],
+          "text": null
+        },
+        "q011": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 56465.79358300005,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 7316,
+              "char_end": 8151
+            },
+            {
+              "index": 2,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 5977,
+              "char_end": 7314
+            },
+            {
+              "index": 4,
+              "paper_id": "applsci-14-02514-v3",
+              "doi": "10.3390/app14062514",
+              "char_start": 0,
+              "char_end": 2200
+            }
+          ],
+          "text": "RF-based technologies (e.g., WiFi, Bluetooth, RFID) are undesirable for localization in medical environments due to high implementation costs [1][2][4], poor signal strength [4], imprecise estimates [4], and potential interference with medical devices [1][2][4]."
+        },
+        "q012": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 22628.02741699852,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover why most PSO implementations fail, as they focus exclusively on a specific VLC system implementation for hospital environments and discuss parameter selection, simulation results, and future work without addressing general failure rates or causes of PSO implementation failures."
+        },
+        "q013": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 83759.84529199923,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 52827,
+              "char_end": 54212
+            },
+            {
+              "index": 5,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 40132,
+              "char_end": 41194
+            }
+          ],
+          "text": "MRC provides higher received power and faster convergence compared to SBC when used with angle diversity receivers (ADRs). MRC achieves maximum received powers of 5.49 dB (pyramidal ADR) and 6.37 dB (hemispherical ADR), with minimum power levels of -20.14 dB and -19.59 dB, while SBC yields lower maximum powers of approximately 0.81 dB for both ADR configurations and higher minimum losses of -23.40 dB. Additionally, MRC achieves faster convergence times (4.23 s for pyramidal ADR and 5.12 s for hemispherical ADR) compared to SBC (6.64 s and 7.01 s respectively), as MRC stabilizes feedback to the RNN for efficient optimization. [5][2]"
+        },
+        "q014": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 29803.940833000524,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 5,
+              "paper_id": "photonics-10-01117",
+              "doi": "10.3390/photonics10101117",
+              "char_start": 18108,
+              "char_end": 20125
+            }
+          ],
+          "text": "Yes, it is possible to automatically pick the best spot on a wall to place a reflecting panel using algorithms that take into account factors such as signal strength, interference, and line-of-sight conditions [5]."
+        },
+        "q015": {
+          "error": "model 'qwen3:4b' at http://localhost:11434/v1/chat/completions did not respond after 3 attempt(s): timed out",
+          "abstained": null,
+          "generation_ms": null,
+          "invalid_citations": [],
+          "citations": [],
+          "text": null
+        },
+        "q016": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 79482.80262499975,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 42371,
+              "char_end": 43471
+            },
+            {
+              "index": 5,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 58252,
+              "char_end": 58896
+            }
+          ],
+          "text": "hemispherical [2][5]"
+        },
+        "q017": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 32826.350417002686,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover what IEC 60079-28 requires from a VLC system in an explosive atmosphere."
+        },
+        "q018": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 26216.99595800237,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 6788,
+              "char_end": 7444
+            },
+            {
+              "index": 4,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 46352,
+              "char_end": 47149
+            },
+            {
+              "index": 5,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 47151,
+              "char_end": 48187
+            }
+          ],
+          "text": "Yes, treating the roughness of a wall as a random variable changes the received power. This is observed in the study through statistical modeling and simulations, where wall roughness is represented by probabilistic distributions (e.g., uniform, normal, exponential, gamma) to account for variability in reflections, resulting in measurable power losses [2][4][5]. Specifically, the results show that roughness causes additional losses in received power, with greater effects in larger walls and shorter tunnels [2], and that different distributions lead to varying levels of signal attenuation and power loss depending on surface properties [5]. \n\nThe answer is derived from the provided sources without external knowledge."
+        },
+        "q019": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 31192.115375000867,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question as they only mention coal with a reflection coefficient range (0.004 to 0.4) but provide no values for shale or limestone, making it impossible to determine changes between these materials."
+        },
+        "q020": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 82853.6305000016,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 13390,
+              "char_end": 13785
+            },
+            {
+              "index": 3,
+              "paper_id": "applsci-15-02364",
+              "doi": "10.3390/app15052364",
+              "char_start": 35304,
+              "char_end": 37421
+            }
+          ],
+          "text": "No, the roughness distribution that maximizes reflected power (uniform distribution) does not work best for the incidence angle; normal distribution is used for angles and enhances angular dispersion [1][3]."
+        },
+        "q021": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 38587.188833000255,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 14671,
+              "char_end": 15647
+            },
+            {
+              "index": 2,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 16408,
+              "char_end": 17384
+            }
+          ],
+          "text": "The IEEE 802.15.7m standard covers NIR (700-1000 nm wavelengths), UV (100-400 nm wavelengths), and visible light (400-700 nm wavelengths) bands, and supports applications including Optical Camera Communications (OCC), LED Identification (LED-ID), and LiFi. [1][2]"
+        },
+        "q022": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 75056.32870800036,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 7147,
+              "char_end": 8090
+            },
+            {
+              "index": 3,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 6599,
+              "char_end": 7847
+            }
+          ],
+          "text": "The data rate is low because the camera's frame rate (reception-sampling rate) is limited to 30-60 fps for common resolutions, resulting in data rates ranging from several bits per second to several kilobits per second due to the requirement for significant image processing to extract information from the camera's 2D image sensor [1][3]."
+        },
+        "q023": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 31836.77254200302,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 99466,
+              "char_end": 99935
+            },
+            {
+              "index": 3,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 101255,
+              "char_end": 101724
+            }
+          ],
+          "text": "The main challenges of using a camera instead of a photodiode in visible light communication are: (1) the bulkiness caused by additional optical filters needed to reduce interference, which makes the optical camera communication (OCC) system impractical [2][3], and (2) the need to shorten the camera's exposure time to focus on transmitted light, which reduces the amount of light captured from surroundings [2][3]."
+        },
+        "q024": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 58648.66662499844,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 3416,
+              "char_end": 4855
+            },
+            {
+              "index": 2,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 4857,
+              "char_end": 6136
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-20-06869-v2",
+              "doi": "10.3390/s20236869",
+              "char_start": 2501,
+              "char_end": 3761
+            },
+            {
+              "index": 4,
+              "paper_id": "electronics-09-01339-v3",
+              "doi": "10.3390/electronics9091339",
+              "char_start": 6138,
+              "char_end": 6765
+            }
+          ],
+          "text": "Yes, organic light sources such as OLEDs can be used as transmitters for camera-based reception [1][2][3][4]."
+        },
+        "q025": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 68253.71445800192,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 62566,
+              "char_end": 63286
+            },
+            {
+              "index": 2,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 60615,
+              "char_end": 61229
+            },
+            {
+              "index": 4,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 0,
+              "char_end": 1739
+            }
+          ],
+          "text": "The IEEE 802.15.7 color calibration algorithm fails with a wavelength-dependent CSK channel because the wavelength-dependent channel induces non-linear color distortion that the algorithm cannot reverse effectively, as the algorithm is designed to reverse linear color distortion (as in the reference monochromatic channel model) [2][1][4]."
+        },
+        "q026": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 25275.622249999287,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 49390,
+              "char_end": 50520
+            }
+          ],
+          "text": "No, the color of the light does not change how much it is attenuated by dust. [3]"
+        },
+        "q027": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 117640.37325000027,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The BER increases because the wavelength-dependent model introduces color distortion that the color calibration algorithm (as defined in the IEEE 802.15.7 VLC standard) finds harder to revert than the linear color distortion in monochromatic channels. This conclusion is based on the authors' observation that the inclusion of wavelength dependency plays a significant role in system performance, as they calculated BER for both models in their simulation scenario. [Source: 1]"
+        },
+        "q028": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 33700.26983400021,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 62566,
+              "char_end": 63286
+            },
+            {
+              "index": 2,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 60615,
+              "char_end": 61229
+            },
+            {
+              "index": 3,
+              "paper_id": "electronics-12-00577-v4",
+              "doi": "10.3390/electronics12030577",
+              "char_start": 0,
+              "char_end": 1739
+            }
+          ],
+          "text": "No, the color distortion of a wavelength-dependent channel is not linear; it is non-linear [1][2][3]."
+        },
+        "q029": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 38907.03029100041,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "energies-15-02814",
+              "doi": "10.3390/en15082814",
+              "char_start": 0,
+              "char_end": 656
+            },
+            {
+              "index": 4,
+              "paper_id": "energies-15-02814",
+              "doi": "10.3390/en15082814",
+              "char_start": 4157,
+              "char_end": 4536
+            },
+            {
+              "index": 5,
+              "paper_id": "energies-15-02814",
+              "doi": "10.3390/en15082814",
+              "char_start": 13289,
+              "char_end": 14396
+            }
+          ],
+          "text": "The infrared sensor in a SLIPT receiver is used to detect movements of unmanned aerial vehicles (UAVs) to wake up the system from sleep mode. [1][4][5]"
+        },
+        "q030": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 45546.604833001766,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 5,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 16961,
+              "char_end": 18444
+            }
+          ],
+          "text": "Yes, [5]"
+        },
+        "q031": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 87606.7165409986,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "energies-15-02814",
+              "doi": "10.3390/en15082814",
+              "char_start": 0,
+              "char_end": 656
+            }
+          ],
+          "text": "Yes, a large solar panel can be a good receiver for an IoT node as it has been successfully implemented in SLIPT-based systems designed for IoT applications [3]."
+        },
+        "q032": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 53726.40612500254,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 13592,
+              "char_end": 14741
+            }
+          ],
+          "text": "The trade-off between energy harvesting and data reception capability limits the wide-scale deployment of IoT devices powered by light [3]."
+        },
+        "q033": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 72822.2907499985,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 36040,
+              "char_end": 37017
+            },
+            {
+              "index": 3,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 0,
+              "char_end": 1995
+            },
+            {
+              "index": 4,
+              "paper_id": "applsci-14-08912",
+              "doi": "10.3390/app14198912",
+              "char_start": 53563,
+              "char_end": 54066
+            }
+          ],
+          "text": "mmWave addresses spectrum scarcity by utilizing the large available bandwidth in the 30-300 GHz range to provide high data rates and capacity improvements for future networks [2]. Cognitive radio addresses spectrum scarcity by dynamically optimizing spectrum usage and minimizing interference through real-time adaptation to available spectrum [3][4]."
+        },
+        "q034": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 47534.099000000424,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-21-00861-v2",
+              "doi": "10.3390/s21030861",
+              "char_start": 3046,
+              "char_end": 4279
+            },
+            {
+              "index": 5,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 42255,
+              "char_end": 42559
+            }
+          ],
+          "text": "The need for a clear line of sight holds back light-based links because light cannot penetrate solid obstacles, causing blockage when physical objects such as people or furniture obstruct the direct path between transmitter and receiver [1][5]."
+        },
+        "q035": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 63187.96404200111,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 5,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 33262,
+              "char_end": 34146
+            }
+          ],
+          "text": "The network topologies used to combine RF and VLC links are symmetric with interference, symmetric without interference, asymmetric, dual transmission, separate transmission, and hybrid transmission [5]."
+        },
+        "q036": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 44262.13104099952,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-12-00649",
+              "doi": "10.3390/photonics12070649",
+              "char_start": 3294,
+              "char_end": 4085
+            },
+            {
+              "index": 2,
+              "paper_id": "photonics-12-00649",
+              "doi": "10.3390/photonics12070649",
+              "char_start": 2636,
+              "char_end": 3292
+            },
+            {
+              "index": 3,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 111741,
+              "char_end": 113126
+            },
+            {
+              "index": 5,
+              "paper_id": "hybrid-rf-vlc-systems-a-comprehensive-survey-on-network-topologies-performance-analyses-applications-and-future-directions",
+              "doi": "10.1109/access.2021.3129154",
+              "char_start": 7849,
+              "char_end": 8672
+            }
+          ],
+          "text": "VLC is suitable for vehicle safety communication as it enables real-time data exchange for collision avoidance and autonomous vehicle coordination [1]. VLC's applications in vehicle-to-vehicle (V2V) and vehicle-to-infrastructure (V2I) communications leverage its high data rates, enhanced security, and immunity to electromagnetic interference, making it suitable for vehicle safety [2]. Additionally, VLC aided by reconfigurable intelligent surfaces (RIS) has the potential to improve traffic safety through V2V communication using streetlights or vehicle lights [3]. The use of VLC in vehicle-to-vehicle communication is actively explored in the automotive industry for safety applications [5]."
+        },
+        "q037": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 94302.1491670006,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "photonics-10-01117",
+              "doi": "10.3390/photonics10101117",
+              "char_start": 8955,
+              "char_end": 9449
+            },
+            {
+              "index": 5,
+              "paper_id": "photonics-10-01117",
+              "doi": "10.3390/photonics10101117",
+              "char_start": 31174,
+              "char_end": 32749
+            }
+          ],
+          "text": "The effect of IRS is included in the expressions as the reflection of optical signals in the IRS, the impact on light beam propagation, and the probability that the LoS link is blocked [2][5]."
+        },
+        "q038": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 101417.31679200166,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 2212,
+              "char_end": 2991
+            }
+          ],
+          "text": "Yes, the light that bounces off a wall can be strengthened when the direct path is blocked, as indicated by the multipath propagation effects described in source [3]. Specifically, source [3] states: \"reflections caused by indoor surfaces can result in multipath propagation, which can enhance or deteriorate the signal, depending on how it is received.\" This implies that in certain conditions (e.g., when the direct path is blocked by objects, walls, or people), the reflected signal (bounced light) may enhance the overall signal strength, thereby being strengthened. The phrasing \"can enhance\" confirms that this strengthening is possible, though it depends on the specific reception conditions.\n\nThis conclusion is based solely on the provided sources and adheres to the requirement to distinguish measured/observed phenomena from assumptions or simulation parameters. No external knowledge is added.\n\n**Citation**: Source [3] (as referenced in the query)."
+        },
+        "q039": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 32300.883332998637,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not contain specific quantitative information about how much IRS improves BER in indoor VLC links."
+        },
+        "q040": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 40320.63266700061,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "photonics-10-01117",
+              "doi": "10.3390/photonics10101117",
+              "char_start": 30215,
+              "char_end": 31172
+            }
+          ],
+          "text": "Yes, partially blocked LoS does not need different treatment from fully blocked LoS because the reflection components produced by the IRS remain stable across varying blockage probabilities, including full blocking (P=0), meaning the same mitigation techniques (e.g., IRS-based reflection) apply to both scenarios [4]."
+        },
+        "q041": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 112650.39462499772,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 0,
+              "char_end": 1371
+            },
+            {
+              "index": 4,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 26499,
+              "char_end": 27885
+            }
+          ],
+          "text": "The sources indicate that the harvested energy depends on the specific non-Lambertian transmitter configuration and receiver aperture size. For the typical receiver aperture size of 10 cm\u00b2 (as referenced in the context of \"typical receiver position\" in source [1]), the NSPW non-Lambertian configuration yields 2.69 mJ of harvested energy. This value is explicitly stated in source [4] and represents the highest energy harvested among the non-Lambertian transmitters discussed (LUXEON Rebel at 0.61 mJ and NSPW at 2.69 mJ for 10 cm\u00b2 aperture).\n\nSource [1] notes a \"harvested energy gain of up to 1.55 mJ\" compared to the Lambertian configuration (1.14 mJ), which corresponds to the absolute energy of 2.69 mJ for the NSPW configuration. This gain is the maximum observed for non-Lambertian transmitters under typical conditions.\n\nThus, the energy harvested with a non-Lambertian transmitter (specifically the NSPW configuration at typical conditions) is **2.69 mJ**.\n\n**Citations**:  \n- Source [4]: \"for the center position, when the original receiver aperture size of 10 cm\u00b2 is applied, the harvested energy is 1.14 mJ, 0.61 mJ, and 2.69 mJ for the Lambertian emission beam configuration, the LUXEON Rebel beam configuration, and the NSPW beam configuration, respectively.\"  \n- Source [1]: \"a harvested energy gain of up to 1.55 mJ can be provided by the discussed non-Lambertian SLIPT scheme compared with the harvested energy of the benchmark Lambertian configuration.\"\n\n\\boxed{2.69}"
+        },
+        "q042": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 55543.98262500035,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 24367,
+              "char_end": 26037
+            },
+            {
+              "index": 5,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 26499,
+              "char_end": 27885
+            }
+          ],
+          "text": "Yes, the shape of the emitted beam affects how much energy a receiver can collect, as demonstrated by the harvested energy values differing significantly across Lambertian, LUXEON Rebel, and NSPW beam configurations at the same receiver aperture size [2][5]. Specifically, for a receiver aperture of 10 cm\u00b2, the harvested energy is 1.14 mJ (Lambertian), 0.61 mJ (LUXEON Rebel), and 2.69 mJ (NSPW), showing clear variation due to beam shape [2]. This effect persists when the receiver aperture size increases to 100 cm\u00b2, with harvested energies of 14.3 mJ, 7.76 mJ, and 33.4 mJ respectively [5]."
+        },
+        "q043": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 47008.72937500026,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 0,
+              "char_end": 1371
+            }
+          ],
+          "text": "Yes, it is worth using a non-Lambertian LED for simultaneous data and energy transfer as it provides a harvested energy gain of up to 1.55 mJ and a data rate gain of 21.1 Mbps compared to Lambertian configurations [1]."
+        },
+        "q044": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 69874.04216600044,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 3429,
+              "char_end": 4289
+            },
+            {
+              "index": 2,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 35640,
+              "char_end": 35897
+            },
+            {
+              "index": 3,
+              "paper_id": "photonics-11-00856",
+              "doi": "10.3390/photonics11090856",
+              "char_start": 0,
+              "char_end": 1371
+            }
+          ],
+          "text": "Lambertian results are not enough to characterize SLIPT because they do not reflect the potential applications of SLIPT based on distinct non-Lambertian optical beams [1], and the conventional Lambertian SLIPT research paradigm could not adapt to the potential non-Lambertian SLIPT VLC scenarios [2], and Lambertian transmitters cannot characterize the potential and essential scenarios employing distinctive non-Lambertian optical transmitters with various spatial beam characteristics [3]."
+        },
+        "q045": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 21253.4338330006,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 6877,
+              "char_end": 7202
+            }
+          ],
+          "text": "Liquid crystals are used to build reconfigurable surfaces for VLC by applying electrical stimulation to reorient the liquid crystal molecules, which alters the refractive index and permittivity of the material. This modulation enables dynamic control of both the phase and amplitude of transmitted or reflected signals. [3]"
+        },
+        "q046": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 63404.502542001865,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "applsci-15-01617-v2",
+              "doi": "10.3390/app15031617",
+              "char_start": 22299,
+              "char_end": 22871
+            }
+          ],
+          "text": "Yes, the provided sources indicate that a surface can reflect and transmit light simultaneously, as they model both reflection and transmission factors for reflective surfaces in visible light communication systems. Specifically, source [4] explicitly references \"reflection and spectral transmission factors\" as part of the received power equation for surfaces in VLC systems, where R(\u03b8_ij) denotes reflection and T_ij(\u03bb) denotes transmission. This demonstrates that the optical properties of such surfaces include both reflection and transmission phenomena occurring concurrently. [4]"
+        },
+        "q047": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 21078.697124998143,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover which RIS architecture is the most promising for VLC, as they describe multiple architectures (MS, MA, LC, STAR) as collectively promising but do not rank or specify a single most promising one."
+        },
+        "q048": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 69603.07179200026,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 5,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 107879,
+              "char_end": 108647
+            }
+          ],
+          "text": "The practical implementation of RIS-VLC systems is hindered by several factors including: idealized or simplified study setups that lack practical constraints, limited exploration of multi-user scenarios, mechanical implementation challenges particularly for mirror-array systems, and the early stage of practical deployment for simultaneous transmission and reflection concepts. [5]"
+        },
+        "q049": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 65861.74579200087,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 25048,
+              "char_end": 25920
+            }
+          ],
+          "text": "Single-photon receivers are interesting for underwater links because they can detect single photons, enabling high detection sensitivity, high accuracy, and low noise measurements in underwater optical communication systems [4]."
+        },
+        "q050": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 103029.50620800038,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 5737,
+              "char_end": 6419
+            },
+            {
+              "index": 2,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 8177,
+              "char_end": 8859
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 10030,
+              "char_end": 11213
+            }
+          ],
+          "text": "Blue and green wavelengths travel further in seawater because seawater exhibits lower absorption (less attenuation) in the blue/green wavelength range (400\u2013500 nm), as measured by the absorption coefficient. This is due to the fact that the water absorption coefficient is minimized in this range, with specific measurements showing a minimum between 400 nm and 500 nm. The presence of phytoplankton (which contain chlorophyll that absorbs blue and red light) contributes to this optical behavior, but the net effect results in reduced attenuation for blue and green wavelengths compared to other parts of the spectrum.\n\n**Citations**:  \n- The lower absorption in the blue/green zone is explicitly stated in [1] and [2].  \n- The measured absorption coefficient minimum between 400\u2013500 nm is directly reported in [3]."
+        },
+        "q051": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 31290.108791999955,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 5066,
+              "char_end": 5414
+            },
+            {
+              "index": 2,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 3655,
+              "char_end": 4128
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 0,
+              "char_end": 630
+            },
+            {
+              "index": 4,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 4130,
+              "char_end": 5064
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-20-02261-v2",
+              "doi": "10.3390/s20082261",
+              "char_start": 3147,
+              "char_end": 3653
+            }
+          ],
+          "text": "Optical communication is not better than acoustic communication underwater in all scenarios. While underwater optical wireless communication (UOWC) offers advantages such as higher bandwidth and lower latency compared to acoustic communication [3], it is currently limited to short range underwater applications [4][5]. Additionally, UOWC technologies can never totally replace acoustic communication, and hybrid acoustic/optic systems are actively studied to address these limitations [1][2]. Therefore, optical communication is not universally better than acoustic communication underwater due to its range constraints and the complementary nature of both technologies."
+        },
+        "q052": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 41766.787792003015,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not specify which underwater optical technologies are expected to become available soon, as they discuss research areas, potential limitations, and general trends without naming concrete technologies with imminent availability timelines."
+        },
+        "q053": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 45351.38395800095,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of what the optical path loss is at the center of a corridor."
+        },
+        "q054": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 35989.72166600288,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "channel-modeling-and-characterization-for-vlc-based-medical-body-sensor-networks-trends-and-challenges",
+              "doi": "10.1109/access.2021.3127941",
+              "char_start": 27004,
+              "char_end": 27951
+            },
+            {
+              "index": 4,
+              "paper_id": "photonics-13-00569",
+              "doi": "10.3390/photonics13060569",
+              "char_start": 3053,
+              "char_end": 3645
+            }
+          ],
+          "text": "Yes, furniture in a room can increase the loss of an optical link by causing blockage, as observed in indoor VLC scenarios where furniture is a factor in optical path interruption [1][4]."
+        },
+        "q055": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 40128.99795900012,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "sensors-20-06869-v2",
+              "doi": "10.3390/s20236869",
+              "char_start": 0,
+              "char_end": 1596
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-20-06869-v2",
+              "doi": "10.3390/s20236869",
+              "char_start": 25597,
+              "char_end": 27022
+            }
+          ],
+          "text": "It is better to place an OLED panel on the outer wall of a shop [2][3]."
+        },
+        "q056": {
+          "error": "model 'qwen3:4b' at http://localhost:11434/v1/chat/completions did not respond after 3 attempt(s): timed out",
+          "abstained": null,
+          "generation_ms": null,
+          "invalid_citations": [],
+          "citations": [],
+          "text": null
+        },
+        "q057": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 56109.522124999785,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 39651,
+              "char_end": 41498
+            },
+            {
+              "index": 4,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 23244,
+              "char_end": 23938
+            }
+          ],
+          "text": "A hemispherical dust particle distribution model is a 3D model that describes dust particles as randomly and independently distributed scatterers within a hemispherical region centered at the photodetector location (helmet) in underground mining environments, designed to more accurately represent the UM hostile environment compared to basic dust particle distributions [4][2]."
+        },
+        "q058": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 31509.133332998317,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 17385,
+              "char_end": 18121
+            }
+          ],
+          "text": "The optical link experiences increased attenuation due to scattering and absorption effects from dust particles [1]."
+        },
+        "q059": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 58762.38212499811,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 71514,
+              "char_end": 73648
+            },
+            {
+              "index": 5,
+              "paper_id": "a-vlc-channel-model-for-underground-mining-environments-with-scattering-and-shadowing",
+              "doi": "10.1109/access.2020.3030615",
+              "char_start": 62221,
+              "char_end": 63237
+            }
+          ],
+          "text": "Yes, the dust distribution model changes the CIR in underground mining [3][5]."
+        },
+        "q060": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 112343.44774999772,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 23940,
+              "char_end": 24723
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 38244,
+              "char_end": 39522
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-22-02483",
+              "doi": "10.3390/s22072483",
+              "char_start": 29408,
+              "char_end": 31176
+            }
+          ],
+          "text": "The shape of the dust distribution matters because it directly influences the spatial arrangement of particles relative to the optical signal path, which in turn affects scattering efficiency and channel characteristics. Specifically, the hemispherical distribution model (where particles are confined to a half-space, defined by azimuth angles \u03c6 \u2209 [0, \u03c0] in [1]) results in different scattering patterns compared to a full 3D spherical distribution, even when the total number of particles (N) is identical. This difference arises because the geometric constraints of the shape alter how dust particles interact with the optical signal\u2014such as reducing the effective scattering area in the hemispherical case\u2014leading to variations in channel impulse response (CIR) and bit error rate (BER) performance. As demonstrated in [5], the scattering impact on the line-of-sight (LoS) component is shape-dependent, and this is further validated by the BER analysis in [3], where the hemispherical model shows distinct performance thresholds for N compared to alternative distributions. Thus, for a given N, the shape dictates the scattering behavior and channel quality, making it critical for accurate modeling and optimization.\n\n**Key Citations**:  \n- [1] for the definition and transformation of hemispherical vs. spherical distributions (e.g., \"to obtain a spherical 3D shape, we consider a value of a = 2\"; \"the distribution denoted in expression (21) can be easily transformed to derive the corresponding distribution for the hemispherical case\").  \n- [5] for the impact of shape on channel characteristics (e.g., \"the light scattering affects the LoS component to a greater extent\" and \"the full UM-VLC channel model is influenced by... shadowing\").  \n- [3] for empirical validation of shape-dependent performance (e.g., comparison of hemispherical distribution with 2D disk models and N-specific BER thresholds)."
+        },
+        "q061": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 115579.3435830019,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 3061,
+              "char_end": 4589
+            },
+            {
+              "index": 2,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 44052,
+              "char_end": 44571
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 20400,
+              "char_end": 22277
+            }
+          ],
+          "text": "Deep learning is used for channel estimation with IRS in the following ways, based on the provided sources:\n\n- Convolutional neural networks (CNNs) are employed to estimate direct and cascaded channels sequentially in IRS-aided MISO-OFDM systems [1].  \n- For optical IRS-assisted visible light communication (VLC) systems, LSTM-based implicit channel estimation algorithms are used to address high computational complexity or low performance in multipath scenarios [2].  \n- A deep denoising neural network processes real and imaginary parts of the channel matrix to estimate compressive channel state information (CSI) in IRS-assisted mmWave systems with low training overhead [5].  \n- Environment descriptors capturing multi-path signatures are extracted to train models for estimating IRS reflection matrices without geometrical array knowledge [5]."
+        },
+        "q062": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 58603.14779199689,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "6g-wireless-communications-networks-a-comprehensive-survey",
+              "doi": "10.1109/access.2021.3124812",
+              "char_start": 24492,
+              "char_end": 26636
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 9125,
+              "char_end": 10112
+            }
+          ],
+          "text": "amplitude and phase shifts [3][5]"
+        },
+        "q063": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 59007.11337499888,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover why machine learning has only recently become viable for IRS optimization."
+        },
+        "q064": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 99857.673333001,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-22-05405",
+              "doi": "10.3390/s22145405",
+              "char_start": 4591,
+              "char_end": 6587
+            },
+            {
+              "index": 5,
+              "paper_id": "reconfigurable-intelligent-surfaces-architectures-for-visible-light-communication-metasurfaces-mirrors-liquid-crystals-and-simultaneous-transmission-and-reflection-topical-review",
+              "doi": "10.1109/access.2026.3702825",
+              "char_start": 111000,
+              "char_end": 111427
+            }
+          ],
+          "text": "The only issue explicitly mentioned in the provided sources related to IRS (reconfigurable intelligent surfaces) combined with emerging technologies is the small number of users tested in most studies, which is far from real-world scenarios. This is described in source [5] as a challenge in the implementation of IRS for next-generation networks or internal VLC (visible light communication) systems. \n\nSpecifically, source [5] states: \"The majority of the studies, presented candidate solutions to solve the challenges of technology implementation for the next network generation or internal VLC. However, the number of users tested by the authors in most papers is small, or far from the usual scenario of wireless technology as it is nowadays.\"\n\nThis issue arises in the context of IRS being combined with VLC (an emerging technology), and it reflects a practical limitation in real-world deployment rather than a theoretical assumption or simulation parameter. No other sources provide details on issues when IRS is combined with other emerging technologies (e.g., non-orthogonal multiple access, physical layer security, etc., as listed in source [1]).\n\nThus, the answer is:  \n**The number of users tested in most studies is small, or far from real-world scenarios. [5]**"
+        },
+        "q065": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 43810.90300000142,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 2,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 49220,
+              "char_end": 50178
+            }
+          ],
+          "text": "The socio-environmental applications of hybrid VLC/RF networks include facilitating decreased energy consumption, reduced environmental pollution, and helping to meet UN Sustainable Development Goals for 2030 [2]."
+        },
+        "q066": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 44416.41108300246,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 18120,
+              "char_end": 19738
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 34148,
+              "char_end": 34650
+            }
+          ],
+          "text": "Hybrid VLC/RF networks can share a network without interfering with each other by using a dedicated hybrid channel model that separates RF (2.4/5 GHz) and VLC (THz) frequency bands, and by implementing topologies where downlink operations allow simultaneous transmission without interference [3][5]."
+        },
+        "q067": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 63450.76854199942,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 35947,
+              "char_end": 36706
+            },
+            {
+              "index": 3,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 38954,
+              "char_end": 40569
+            },
+            {
+              "index": 4,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 43423,
+              "char_end": 44572
+            },
+            {
+              "index": 5,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 72393,
+              "char_end": 74464
+            }
+          ],
+          "text": "Hybrid VLC/RF networks behave with complex and dynamic communication channels under adverse outdoor conditions such as sunlight, rain, dust, wind, fog, and snow [1]. The VLC signal experiences higher losses than the RF network due to its sensitivity to atmospheric conditions [1]. In harsh conditions, the optical beam distorts, causing amplitude and phase fluctuations along with increased signal attenuation [1]. When sunlight causes photodiode saturation, the system falls back to RF-only operation to ensure continuous connectivity [4]. Artificial light sources (e.g., cars, street lights) can cause interference but are typically blocked by optical receiver filters if they have different directions from the field of view [4]. Weather phenomena like fog, rain, and snow cause additional signal attenuation through atmospheric interactions with light [5]. The system adapts using topologies such as Point-to-Point for line-of-sight or Fuzzy for non-line-of-sight links [3]."
+        },
+        "q068": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 75800.7319999997,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "sensors-23-07545-v2",
+              "doi": "10.3390/s23177545",
+              "char_start": 0,
+              "char_end": 1529
+            }
+          ],
+          "text": "Load balancing in a hybrid network does not conflict with lighting requirements because the design integrates both aspects, as indoor scenarios are studied considering lighting requirements alongside load balancing [3]."
+        },
+        "q069": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 71220.3851660015,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 3,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 5554,
+              "char_end": 6532
+            }
+          ],
+          "text": "Emerging PV technologies reach power conversion efficiencies of up to 40.2% indoors [3]."
+        },
+        "q070": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 99107.18391699993,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 33133,
+              "char_end": 34782
+            },
+            {
+              "index": 2,
+              "paper_id": "energies-15-02814",
+              "doi": "10.3390/en15082814",
+              "char_start": 1575,
+              "char_end": 2939
+            }
+          ],
+          "text": "The geometric capacitance of the solar cell (which limits its bandwidth via RC time constant) and the use of an AC-DC decoupling receiver enable it to read data from flickering light at high speeds [1][2]. \n\n- **Geometric capacitance and RC limitation**: Source [1] indicates that the bandwidth of a solar cell is intrinsically constrained by its geometric capacitance, which creates an RC time constant that directly affects the maximum frequency it can track. This is critical for flickering light (rapid modulation), as the solar cell must respond to the AC component of the LED's flickering signal without significant distortion.\n- **AC-DC decoupling receiver**: Source [2] explicitly identifies this circuitry as a key element for achieving high data rates in flickering light scenarios, as it effectively separates and processes the rapid AC variations from the slower DC component, enabling the solar cell to maintain high-speed data reading.\n\nThese factors address the specific requirements for high-speed operation under flickering light conditions, as the solar cell's inherent bandwidth limitations (from geometric capacitance) are mitigated by the AC-DC decoupling receiver.\n\n[1] Source: \"the necessity to adapt the data rate to the frequency response of PV panels as a function of its size, and also a detailed comparison between frequency responses of the solar panel and a commercial photodiode. Indirectly, this work illustrates the close relationship between the geometric capacitance of the module and its bandwidth through the RC limitation.\"  \n[2] Source: \"A key element for reaching such data rates in was the use of an alternating current-direct current (AC-DC) decoupling receiver.\""
+        },
+        "q071": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 51394.384625000384,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 22854,
+              "char_end": 23957
+            },
+            {
+              "index": 5,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 53925,
+              "char_end": 54885
+            }
+          ],
+          "text": "Dye-sensitized solar cells (DSSC), organic photovoltaics (OPV), and perovskite solar cells [1][5]"
+        },
+        "q072": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 76511.02220800021,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 61013,
+              "char_end": 62289
+            },
+            {
+              "index": 5,
+              "paper_id": "solar-03-00011",
+              "doi": "10.3390/solar3010011",
+              "char_start": 56269,
+              "char_end": 57554
+            }
+          ],
+          "text": "NLOS paths, multiple reflections from the environment, potential obstacles associated with mobility scenarios, multiple noise sources, ambient noise (such as sunlight or other undesired artificial sources), and the difficulty in predicting performance of PV modules with complex shapes on curved surfaces [4][5]."
+        },
+        "q073": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 50744.33529199814,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources describe the theoretical framework for phase gradients in metasurfaces for visible light communication but do not specify the exact phase gradient values or formulas needed to focus light. They mention the form of phase gradients (e.g., constant over patches with x and z components) and conditions for focusing (e.g., tuning phase discontinuity to direct rays from source center to detector center), but do not provide the specific numerical values or analytical expressions required to answer the question."
+        },
+        "q074": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 43462.69408399894,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 4,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 0,
+              "char_end": 1185
+            }
+          ],
+          "text": "The number of reflecting elements and the relative source-reflector dimensions [4]."
+        },
+        "q075": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 63332.132999999885,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of which is better for focusing light without specifying environmental conditions."
+        },
+        "q076": {
+          "error": null,
+          "abstained": false,
+          "generation_ms": 76735.11254199911,
+          "invalid_citations": [],
+          "citations": [
+            {
+              "index": 1,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 0,
+              "char_end": 1185
+            },
+            {
+              "index": 3,
+              "paper_id": "visible-light-communications-via-intelligent-reflecting-surfaces-metasurfaces-vs-mirror-arrays",
+              "doi": "10.1109/ojcoms.2020.3041930",
+              "char_start": 44894,
+              "char_end": 45789
+            }
+          ],
+          "text": "By using the Relative Brightness Irradiance Ratio (RBIR) metric computed from the irradiance expressions in the detector plane for the given source, detector, and reflector layout [1][3]."
+        },
+        "n001": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 36407.26458299832,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the effect of the earth's electromagnetic field on optical communications."
+        },
+        "n002": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 27189.580792000925,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question of whether LED aging affects the long-term reliability of a VLC link."
+        },
+        "n003": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 54226.19708300044,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not contain specific information about physical layer security schemes recommended for encrypting VLC links, as they focus on general security challenges, standards, and future directions without detailing encryption schemes for VLC."
+        },
+        "n004": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 26539.320749998296,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover whether there are commercial VLC products certified for use in aircraft cabins."
+        },
+        "n005": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 27912.35287499876,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover the question about how much temperature drift shifts the emission wavelength of an LED."
+        },
+        "n006": {
+          "error": null,
+          "abstained": true,
+          "generation_ms": 28307.085958000243,
+          "invalid_citations": [],
+          "citations": [],
+          "text": "The provided sources do not cover flicker regulations specifically for protecting people with photosensitive epilepsy in VLC systems."
+        }
+      }
+    }
+  }
+}

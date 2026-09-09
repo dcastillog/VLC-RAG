@@ -103,6 +103,66 @@ The collection-level `indexed_vectors_count` is misleading here — it reports t
 because sparse vectors use an inverted index, which is always fully built. Reading that counter
 as a dense-index indicator would give the wrong answer.
 
+### 5. Local 3–4B models do not reliably tell answerable questions from unanswerable ones
+
+**Setup.** A grounded answer layer sits on top of retrieval. The top 5 chunks for a query are
+numbered `[1]`–`[5]` and injected as context; the model is instructed to answer only from them,
+cite sources inline as `[n]`, and begin its reply with a fixed marker token when the context does
+not contain the answer — abstention is detected from that token, not by phrase-matching refusal
+language. Inference is local, through Ollama's OpenAI-compatible endpoint, at temperature 0. Each
+`[n]` in the reply is parsed back out and checked against the context actually supplied.
+
+**The check, and why the labelled data is unusual.** The evaluation set contains 17 questions
+established as unanswerable by the pooled judging described below — judged so against the corpus,
+not assumed — alongside the 65 answerable ones. Running all 82 through the answer layer measures
+one behaviour: whether the model declines when retrieval has returned nothing that answers the
+question. It is not a measure of faithfulness or answer quality. A model that abstains on
+everything scores perfectly on the 17 and uselessly on the 65, so the two rates mean something
+only read together.
+
+**Results.** Two models, identical retrieval (`hybrid_dbsf` over `vlc_section`, top 5):
+
+| | `qwen2.5:3b` | `qwen3:4b` |
+|---|---|---|
+| abstention rate, 17 unanswerable — want high | 70.6% (12/17) | 43.8% (7/16) |
+| abstention rate, 65 answerable — want low | 61.5% (40/65) | 16.4% (10/61) |
+| answers with an invalid citation index | 0 | 0 |
+| median generation latency | 3.4 s | 53.7 s |
+
+Rates count a refusal whether it used the marker or was only phrased as one: `qwen2.5:3b`
+declined 3 further answerable questions (`q038`, `q043`, `q065`) in prose without emitting the
+marker, which the marker alone would have scored as answers. `qwen3:4b` timed out on 5 questions
+at `timeout_seconds: 120` — 1 unanswerable, 4 answerable — so its denominators are 16 and 61,
+not 17 and 65.
+
+**The read.** `qwen2.5:3b`'s 70.6% on the unanswerable set is bought entirely by a 61.5%
+false-abstention rate on the answerable set: it refuses roughly six answerable questions in ten.
+That is indiscriminate refusal, not detection of failed retrieval. `qwen3:4b` has the only
+defensible answerable rate, 16.4%, but produces a confidently cited answer for 56.2% (9 of 16) of
+the questions judging established have no answer in the corpus. The gap between a model's two
+rates is the honest one-number summary: 27 points for `qwen3:4b`, 9 for `qwen2.5:3b`. Neither
+model knows what it does not know.
+
+**Citation validity is a weak proxy for faithfulness.** Across all 82 questions neither model
+produced a single invalid citation index — every `[n]` in every answer points to a context chunk
+that was really supplied. `qwen3:4b` cleared that check on all 9 of its confabulated answers to
+unanswerable questions; automated citation verification passes each one. A manually found case
+shows the same failure inside a citation that is fully valid: asked for the attenuation limit of
+an FSO link in severe fog, the system answered "25 dB/km" with a correct citation, but the cited
+passage introduces that number as a worst-case value the authors *selected* to stress-test a
+simulation, not as a measured or established limit — an assumption reported as a finding,
+verbatim and correctly cited. Adding one instruction to the system prompt (distinguish measured
+or observed values from assumed or simulated ones, and say which) corrected that answer, verified
+with the bare question and no hint. Citation checking verifies where a sentence came from, not
+whether the claim built on it holds.
+
+**What ships.** `qwen3:4b` is the default — better answerable rate, wider gap between the two
+rates, and it makes the measured-versus-assumed distinction once instructed to — at roughly 15×
+the latency of `qwen2.5:3b` (53.7 s against 3.4 s median per answer on this hardware). The answer
+layer targets the OpenAI-compatible chat-completions schema, so swapping the local model for a
+hosted one is an `.env` change rather than a rewrite. This selects the less unreliable of two
+unreliable options; it does not make the abstention behaviour acceptable.
+
 ---
 
 ## Evaluation methodology
@@ -247,6 +307,9 @@ fusion settings, random seed, and git commit hash.
   the winner is selected on the same data used to measure it.
 - **RRF k sweep only.** The evaluation plan also called for a payload-index latency comparison
   and an `indexing_threshold` (exact vs HNSW) comparison; neither was run.
+- **Generation is evaluated only for abstention behaviour and citation validity.** No
+  faithfulness, answer-quality, or LLM-as-judge evaluation was performed. Beyond the handful of
+  manually inspected answers, whether the generated answers are correct is unmeasured.
 
 ---
 
@@ -267,11 +330,20 @@ uv run python scripts/ingest.py --chunker all
 # query by hand
 uv run python scripts/query.py "RMS delay spread in underground mining" --mode hybrid_rrf
 
-# evaluate
+# evaluate retrieval
 uv run python scripts/run_eval.py
+
+# grounded answer (needs an OpenAI-compatible LLM endpoint; see .env.example)
+uv run python scripts/answer.py "what limits the data rate of OCC?" --mode hybrid_dbsf
+
+# abstention behavioural check (Finding 5)
+uv run python scripts/check_abstention.py --models qwen2.5:3b,qwen3:4b
 ```
 
-Requires Docker (Qdrant, GROBID) and `uv`. No API keys; all inference is local and CPU-only.
+Requires Docker (Qdrant, GROBID) and `uv`. Retrieval and evaluation are local, CPU-only, and need
+no API keys. The generation layer additionally needs an OpenAI-compatible chat endpoint at
+`LLM_BASE_URL` — a natively-running Ollama by default (`LLM_MODEL` sets the model); a hosted
+provider is a `.env` change.
 
 ## Layout
 
@@ -280,11 +352,12 @@ src/ragvlc/
   parsing/     GROBID client, TEI extraction, frozen normalization, Crossref metadata
   chunking/    fixed and section-aware strategies behind one interface
   retrieval/   embedding, collections, four search modes
+  generation/  grounded answer layer over retrieval, OpenAI-compatible LLM client
   eval/        pooling, judgments, metrics, bootstrap, IDF overlap, budget curves
   corpus.py    CORPUS.md attribution-list builder
-scripts/       CLI entry points
+scripts/       CLI entry points (query.py, answer.py, run_eval.py, check_abstention.py, ...)
 CORPUS.md      CC-BY attribution list, generated from data/manifest.csv + data/crossref/
 data/eval/     questions, pool, judgments  (committed)
 data/normalized/  frozen canonical text     (gitignored -- regenerate via parse_corpus.py)
-results/       metrics, plots, raw per-question output
+results/       metrics, plots, abstention check, raw per-question output
 ```
