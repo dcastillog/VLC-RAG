@@ -17,6 +17,42 @@ before the evaluation's character offsets can be checked at all. What *is* commi
 
 ---
 
+## What this does
+
+The system answers questions about a corpus of VLC and OCC papers, and measures how well it
+does so. The pipeline runs end to end as follows.
+
+**Ingestion.** PDFs are parsed by GROBID into TEI XML, which recovers reading order across
+two-column layouts, section structure, and a cleanly separated bibliography. From the TEI, an
+extraction step decides what enters the index: body prose and figure/table captions are kept;
+references, acknowledgements, footnotes, display equations and inline citation markers are
+dropped. The surviving text is passed through a single frozen normalization function and
+assembled into one canonical string per paper, with each extracted unit recording its character
+range in that string. Bibliographic metadata comes from Crossref rather than from the PDF, and
+Unpaywall confirms each paper's licence before it is indexed.
+
+**Indexing.** The canonical text is split by two competing strategies — a structure-blind
+fixed-size window and a section-aware splitter that respects unit boundaries — each producing
+its own Qdrant collection. Every chunk carries a dense vector (`bge-small-en-v1.5`, CPU
+inference) and a sparse BM25 vector as named vectors on the same point, alongside a payload of
+paper, section and licence metadata with indexes on the filterable fields.
+
+**Retrieval.** Queries run in four modes: dense only, sparse only, and two hybrids that issue
+both as prefetch branches and fuse them server-side through Qdrant's Query API, using either
+Reciprocal Rank Fusion or Distribution-Based Score Fusion.
+
+**Generation.** Retrieved chunks are numbered and injected as context for a locally-run model
+behind an OpenAI-compatible endpoint, which answers with inline citations or declines when the
+context does not contain the answer.
+
+**Evaluation.** 82 questions were written from domain knowledge before consulting the papers.
+Because relevance is recorded as character ranges in the canonical text rather than as chunk
+identifiers, the same judgments apply unchanged to both chunking strategies — which is what
+makes comparing them possible. Judgments were collected by pooling the top results of all eight
+configurations and annotating them blind. Every comparison is reported as a bootstrapped
+confidence interval on the difference between two configurations, never as two point estimates
+with the larger declared the winner.
+
 ## Findings
 
 ### 1. A naive chunker appears to win, until you control for how much text it returns
